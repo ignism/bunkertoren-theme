@@ -1,0 +1,26 @@
+{% extends 'sections/section.twig' %}
+
+{% set section_classes = ['polygon-box', 'fit-height'] %}
+
+{% block content %}
+
+    <div class="polygon-wrapper">
+        <div class="polygon-content align-clipping-left">
+
+            {% if page_variation == 'front' %}
+                {% include 'sections/partials/polygon-box-front.twig' %}
+            {% else %}
+                {% include 'sections/partials/polygon-box-about.twig' %}
+            {% endif %}
+
+        </div>
+
+        <div class="polygon-top">
+            <div class="fill"></div>
+        </div>
+        <div class="polygon-bottom">
+            <div class="fill"></div>
+        </div>
+    </div>
+
+{% endblock %}

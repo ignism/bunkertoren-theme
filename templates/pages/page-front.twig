@@ -1,0 +1,90 @@
+{% extends "base.twig" %}
+
+{% set body_classes = ['page-front', 'has-floating-message'] %}
+
+{% block body %}
+
+    {% include 'sections/splash.twig' with {
+        'background_color': 'light-red',
+        'image': 'https://placehold.it/640x480',
+        'scroll_caption': 'Lees Meer'
+    } %}
+
+    {% include 'sections/text-image.twig' with {
+        'background_color': 'light-red',
+        'orientation': 'text-left',
+        'slides': [
+            {'image': 'http://placehold.it/1600x1200'},
+            {'image': 'http://placehold.it/1600x1200'}
+        ],
+        'clipping': 'is-clipped-left',
+        'header': 'BunkerToren is modern stedelijk wonen opnieuw gedefinieerd.',
+        'title': 'goed wonen',
+        'text': 'Het centrum van Eindhoven groeit. Dat wordt zichtbaar met de komst van De Bunkertoren; een woontoren van hoogwaardige kwaliteit, omringd door een groen stadpark en op steenworp afstand van Eindhoven Centraal Station. De Bunkertoren is een transformatie van het iconische bouwwerk, een voormalig studentencentrum, tot een woon gebied.'
+    } %}
+
+    {% include 'sections/text-image.twig' with { 
+        'background_color': 'light-green',
+        'orientation': 'text-right',
+        'slides': [
+            {'image': 'http://placehold.it/1600x1200'},
+            {'image': 'http://placehold.it/1600x1200'},
+            {'image': 'http://placehold.it/1600x1200'},
+            {'image': 'http://placehold.it/1600x1200'}
+        ],
+        'clipping': 'is-clipped-right',
+        'title': 'groen park',
+        'text': 'De Bunkertoren, met haar omliggende park, creëert een geweldige groenbeleving in een stedelijke setting. Een unieke plek om te wonen en te verblijven. Het park telt een verscheidenheid aan planten - en boom soorten. Ook stimuleert het de bio-diversiteit. Een plek om te relaxen  en te ontmoeten.'
+    } %}
+
+    {% include 'sections/fullwidth-portrait.twig' with { 
+        'fullwidth_portrait_image': 'http://placehold.it/2500x5000',
+        'floating_h2': 'Transformatie van BunkerToren markeert een nieuw begin aan de Noordzijde van Eindhoven.',
+        'button': 'geschiedenis'
+    } %}
+
+    {% include 'sections/text-image.twig' with { 
+        'background_color': 'light-red',
+        'orientation':' text-left',
+        'slides': [
+            {'image': 'http://placehold.it/1600x1200'},
+            {'image': 'http://placehold.it/1600x1200'}
+        ],
+        'clipping': 'is-clipped-left',
+        'title': ' Centrale Ligging',
+        'text': 'Eindhoven is in beweging. Een stad vol tech en ‘cutting edge’ design. Een plek voor ontdekking en experiment. De stad heeft een echte creatieve ondernemersgeest, een proeftuin voor innovatie en vernieuwing.'
+    } %}
+
+    {% include 'sections/usp-icons.twig' with { 
+        'usp_arrow': './assets/images/usp-arrow.svg',
+        'usp_icon_green': './assets/images/usp-icon-green.svg',
+        'usp_icon_community': './assets/images/usp-icon-community.svg',
+        'usp_icon_location': './assets/images/usp-icon-location.svg',
+        'usp_icon_sustainability': './assets/images/usp-icon-sustainability.svg'
+    } %}
+
+    {% include 'sections/polygon-box.twig' with {
+        'page_variation': 'front',
+        'background_color': 'red',
+        'text': 'Interesse in meer details over de plannen, het bouwproces en de mogelijkheden? Schrijf je in voor informatie over beschikbaarheid.',
+        'contact': {
+            'mail': 'info@bunkertoren.nl',
+            'phone': '+ 40 26 79 63 541'
+        }
+    } %}
+
+    {% include 'sections/news.twig' with {
+        'news' : [
+            {
+                'background_image': 'http://placehold.it/1600x900',
+                'date': '20 juni 2018',
+                'excerpt': 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accus…'
+            }, {
+                'background_image': 'http://placehold.it/1200x1000',
+                'date': '28 mei 2018',
+                'excerpt': 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit…'
+            }
+        ]
+    } %}
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'sections/section.twig' %}
+
+{% set section_classes = ['text-image'] %}
+
+{% block content %}
+
+    {% if orientation == 'text-left' %}
+        {% include 'sections/partials/text-image-left.twig' with {
+            'clipping': 'is-clipped-left'
+        } %}
+    {% else %}
+        {% include 'sections/partials/text-image-right.twig' with {
+            'clipping': 'is-clipped-right'
+        } %}
+    {% endif %}
+
+{% endblock %}

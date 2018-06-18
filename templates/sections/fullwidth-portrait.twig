@@ -1,0 +1,29 @@
+{% extends 'sections/section.twig' %}
+
+{% set section_classes = ['fullwidth-portrait'] %}
+
+{% block section %}
+    {# TODO: large-portrait-image --> fullwidth-portrait-image #}
+    <img class="fullwidth-portrait-image" src="{{ fullwidth_portrait_image }}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="float-trigger" data-trigger-from></div>
+        <div class="floating-message">
+            {% if (floating_h1) %} 
+                <h1>{{ floating_h1 }}</h1>
+           {% endif %}
+           {% if (floating_h2) %} 
+                <h2>{{ floating_h2 }}</h2>
+           {% endif %}
+           {% if (floating_p) %} 
+                <p>{{ floating_p }}</p>
+           {% endif %}
+           {% if (button) %} 
+                <a href="#" class="button is-inverted">{{ button }}</a>
+           {% endif %}
+        </div>
+    <div class="float-trigger" data-trigger-to></div>
+
+{% endblock %}

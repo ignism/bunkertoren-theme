@@ -1,0 +1,60 @@
+{% extends "../base.twig" %}
+
+{% set body_classes = ['page-appartments'] %}
+
+{% block body %}
+
+    {% include '.sections/splash.twig' with {
+        'background_color': 'light-red',
+        'content': '360',
+        'text': 'Maaskant Penthouse',
+        'scroll_caption': 'Bekijk appartementen'
+    } %}
+
+    {% include '.sections/appartments-list.twig' with {
+        'header': 'Bekijk hier het uitgebreide<br>woningaanbod',
+        'appartments': [
+            {
+                'title': 'Maaskant Penthouse',
+                'area': '115-200m2',
+                'link': 'single-appartments.html'
+            }, {
+                'title': 'Breuer Penthouse',
+                'area': '55-80m2',
+                'link': 'single-appartments.html'
+            }, {
+                'title': 'Oak Loft',
+                'area': '63-93m2',
+                'link': 'single-appartments.html'
+            }, {
+                'title': 'Chestnut Loft',
+                'area': '90-125m2',
+                'link': 'single-appartments.html'
+            }, {
+                'title': 'Pine Loft',
+                'area': '145-180m2',
+                'link': 'single-appartments.html'
+            }, {
+                'title': 'Birch Appartment',
+                'area': '164-200m2',
+                'link': 'single-appartments.html'
+            }, 
+        ]
+    } %}
+
+    {% include '.sections/text-360.twig' with {
+        'background_color': 'light-red',
+        'orientation': 'text-right',
+        'title': 'Divers<br>aanbod',
+        'subtitle': 'Bancroft Loft',
+        'text': 'Flexibele vloeren bieden verschillende soorten woonruimten voor levensgenieters - van appartementen voor gezinnen tot woonruimte voor starters, ‘young professionals’ en jonge ouderen. De plint van de Bunkertoren is publiek toegankelijk. Er is ruimte voor verschillende voorzieningen, die de plek tot leven brengen. De kantoorfuncties, die zich in de resterende delen van de oorspronkelijke Bunker bevinden, geven startende ondernemingen en organisaties de mogelijkheid zich te vestigen en hun bedrijf te laten bloeien. Er bestaat ruimte voor high-tech startups.'
+    } %}
+
+    {% include '.sections/text-360.twig' with {
+        'orientation': 'text-left',
+        'title': 'programma',
+        'subtitle': 'Da Rocha Appartement',
+        'text': 'Op de begane grond bevindt zich een grand café, voor bewoners èn publiek. Het grand café biedt mogelijkheid om zakelijk bijeen te komen of te flexwerken. In de Bunkertoren vindt een natuurlijke integratie van functies plaats, een plek waar mensen wonen, werken en ontspannen.<br><br>Het eigenwijze en uitnodigende karakter van de Bunkertoren, haar programma en slim opgezette infrastructuur faciliteren ontmoeting en een ongedwongen community-feel.'
+    } %}
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'sections/section.twig' %}
+
+{% set section_classes = ['appartment-details', 'fit-height'] %}
+
+{% block content %}
+
+    <div class="columns">
+        <div class="column is-3">
+            <div class="content">
+                <ul>
+                    {% for room in room_list %}
+                        <li>{{ loop.index }}.
+                            {{ room }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="column is-3">
+            <div class="content">
+                {% for item in statistics %}
+                    <div class="level">
+                        <div class="level-item level-left">{{ item.key }}</div>
+                        <div class="level-item level-right">{{ item.value }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="column is-3">
+            <div class="content">
+                <div class="half">
+                    Zuiden
+                </div>
+                <div class="half">
+                    Oosten
+                </div>
+                <img src="{{ aanzichten_url }}" alt="">
+            </div>
+        </div>
+        <div class="column is-3">
+            <div class="content">
+                <div class="level">
+                    <div class="level-item level-left">Noorden</div>
+                    <div class="level-item level-right">
+                        <img src="./assets/images/windrichting.svg" alt="" style="transform:rotate({{ rotation }})">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

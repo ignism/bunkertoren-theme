@@ -1,0 +1,95 @@
+{% extends '../base.twig' %}
+
+{% set body_classes = ['page-about', 'has-floating-message'] %}
+
+{% block body %}
+
+    {% include '../components/header.twig' with {
+        'header': 'over<br>bunkertoren',
+        'background_color': 'light-gold'
+    } %}
+
+    {% include '.sections/text-image.twig' with {
+        'slides': [
+            {'image': 'http://placehold.it/1600x1200'},
+            {'image': 'http://placehold.it/1600x1200'}
+        ],
+        'title': 'trans &mdash;<br>formatie',
+        'text': 'Het centrum van Eindhoven groeit en dat wordt zichtbaar met de komst van De Bunkertoren; een woontoren van hoogwaardige kwaliteit, omringd door een groen stadpark en op steenworp afstand van Eindhoven Centraal Station.<br><br>
+        De Bunkertoren is een transformatie van het iconische bouwwerk, een voormalig studentencentrum, tot een woon / werk gebied. De Bunkertoren vertelt een verhaal van geschiedenis en toekomst, van herinneringen en dromen.'
+    } %}
+
+    {% include '.sections/text-image.twig' with {
+        'background_color': 'light-gold',
+        'slides': [
+            {'image': 'http://placehold.it/1600x1200'},
+            {'image': 'http://placehold.it/1600x1200'},
+            {'image': 'http://placehold.it/1600x1200'}
+        ],
+        'clipping': 'is-clipped-left',
+        'class': 'no-limit',
+        'header': 'Transformatie van BunkerToren markeert een nieuw begin aan de Noordzijde van Eindhoven het eerste moderne woongebied aan ’de andere kant’ van het spoor.',
+        'title': 'geschiedenis',
+        'text': 'De Bunkertoren heeft een zelfverzekerd en uitgesproken karakter. Brutaal én uitnodigend. Dat zie je aan de aan brutalisme refererende architectuur. En het zit in de naam. Die is onconventioneel voor een woongebied maar herbergt tegelijkertijd voor veel mensen een schat aan mooie herinneringen. De Bunker mag brutaal zijn, dat geeft het gebied eigenheid en past naadloos in een ongepolijste stad als Eindhoven. Het uitnodigende, zachte karakter komt juist meer naar voren als je De Bunkertoren leert kennen, met haar groene omgeving en inclusieve gemeenschap.'
+    } %}
+
+    {% include '.sections/fullwidth-portrait.twig' with {
+        'fullwidth_portrait_image': 'http://placehold.it/2500x5000',
+        'floating_h1': 'centrale<br>ligging',
+        'floating_p': 'Eindhoven is een inspirerende stad in beweging. Een stad vol tech en ‘cutting edge’ design. Het is een plek voor ontdekking en experiment. De stad heeft een echte creatieve ondernemersgeest, een proeftuin voor innovatie en vernieuwing.'
+    } %}
+
+    {% include '.sections/map.twig' with {
+        'map': 'http://placehold.it/1200x800',
+        'title': 'bereikbaarheid',
+        'text': 'De Bunkertoren bevindt zich naast het terrein van de Tecnische Universiteit Eindhoven, gelegen in het groene stadspark aan de John F. Kennedy laan.<br><br>
+        Op 5 minuten afstand van Eindhoven Centraal Station en met directe toegang tot de snelweg bezit deze plek een uitstekende bereikbaarheid. Vanuit De Bunkertoren reist u zowel per trein als auto gemakkelijk naar steden als Den Bosch, Utrecht, Amsterdam en Rotterdam.  Ook internationale steden als London, Barcelona en Milaan, liggen binnen handbereik door de uitstekende verbinding met Eindhoven Aiport.'
+    } %}
+
+    {% include '.sections/polygon-box.twig' with {
+        'background_color': 'red',
+        'text': 'Een<br>nieuw<br>icoon',
+        'image': './assets/images/drawing.png'
+    } %}
+
+    {% include '.sections/text-image.twig' with {
+        'section_class': 'fit-height',
+        'slides': [
+            {'image': 'http://placehold.it/1600x1200'},
+            {'image': 'http://placehold.it/1600x1200'},
+            {'image': 'http://placehold.it/1600x1200'}
+        ],
+        'clipping': 'no-clipping',
+        'title': 'Materiaal &amp;<br>Architectuur',
+        'text': 'In zijn materialisatie refereert de Bunkertoren aan het oorspronkelijke brutalistische ontwerp door het toepassen van een grijze natuursteen, houten geveldelen en naar boven toe meer en meer glas. Het nieuwe park loopt via de daken van de Bunker en het getrapte verloop verder omhoog de toren op.'
+    } %}
+
+    {% include '.sections/partners.twig' with {
+        'background_color': 'light-gold',
+        'section_class': 'fit-height',
+        'title': 'partners',
+        'text': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        'partners': [
+            {
+                'title': 'Ontwikkelaar',
+                'logo': './assets/images/REDC.png'
+            }, {
+                'title': 'Ontwikkelaar',
+                'logo': './assets/images/Being.png'
+            }, {
+                'title': 'Architect',
+                'logo': './assets/images/Powerhouse.png'
+            }, {
+                'title': 'Lnadschapsarchitect',
+                'logo': './assets/images/Delva.png'
+            }, {
+                'title': 'Verkoop makelaar',
+                'logo': './assets/images/vbt.png'
+            }, {
+                'title': 'Partner',
+                'logo': './assets/images/TUe.png'
+            }
+        ]
+    } %}
+
+{% endblock %}

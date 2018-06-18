@@ -1,0 +1,55 @@
+<div class="footer-placeholder"></div>
+
+<footer id="footer" class="footer">
+    <div class="container is-fluid">
+        <div class="columns is-mobile is-multiline">
+            <div class="column is-6-mobile is-3-tablet">
+                <div class="content">
+                    <img class="logo" src="{{ logo_url }}">
+                    <a class="is-hidden-mobile" href="">Disclaimer</a>
+                </div>
+            </div>
+            <div class="column is-6-mobile is-3-tablet">
+                <div class="content">
+                    <p>
+                        Voor meer vragen<br>
+                        en informatie
+                    </p>
+                    <p>
+                        <a href="mailto:{{ contact.mail }}">{{ contact.mail }}</a>
+                        <br>
+                        <a href="tel:{{ contact.phone|replace(' ', '') }}">{{ contact.phone }}</a>
+                    </p>
+                </div>
+            </div>
+            <div class="column is-6-mobile is-3-tablet">
+                <div class="content">
+                    <p>
+                        Voor het laatste<br>
+                        nieuws en updates
+                    </p>
+
+                    <p>
+                        <a href="">Facebook</a>
+                        <br>
+                        <a href="">Instagram</a>
+                    </p>
+                </div>
+            </div>
+            <div class="column is-6-mobile is-3-tablet">
+                <div class="content">
+                    <p>
+                        Direct informatie<br>
+                        over beschikbaarheid?
+                    </p>
+                    <p>
+                        <a href="#" class="button">inschrijven</a>
+                    </p>
+                </div>
+            </div>
+            <div class="column is-hidden-tablet">
+                <a class="" href="">Disclaimer</a>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,33 @@
+{% extends 'sections/section.twig' %}
+
+{% set section_classes = ['appartments-list', 'fit-height'] %}
+
+{% block content %}
+
+    <div class="columns">
+        <div class="column is-10-tablet is-8-fullhd is-offset-1-tablet is-offset-2-fullhd">
+            <h2 class="list-header">{{ header }}</h2>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column is-10-tablet is-8-fullhd is-offset-1-tablet is-offset-2-fullhd">
+            <table class="table">
+                <tbody>
+
+                    {% for appartment in appartments %}
+                        <tr>
+                            <td class="is-hidden-mobile">0{{ loop.index }}</td>
+                            <td>{{ appartment.title }}</td>
+                            <td>{{ appartment.area }}</td>
+                            <td class="has-text-right">
+                                <a href="{{ appartment.link }}">bekijk</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

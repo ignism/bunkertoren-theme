@@ -1,0 +1,25 @@
+{% extends 'sections/section.twig' %}
+
+{% set section_classes = ['map'] %}
+
+{% block content %}
+
+        <div class="columns body {% if header %}has-header{% endif %}">
+            <div class="column text-column is-hidden-mobile is-5-tablet is-4-desktop">
+                <h1>{{ title }}</h1>
+                <p>{{ text }}</p>
+            </div>
+            <div class="column map-column is-6-tablet is-7-desktop is-offset-1">
+                <div class="map is-clipped-right">
+                    <div class="background-image" style="background-image: url('{{ map }}')">
+                        <img src="http://placehold.it/4x3" alt="" class="placeholder">
+                    </div>
+                </div>
+            </div>
+            <div class="column is-hidden-tablet">
+                <h1>{{ title }}</h1>
+                <p>{{ text }}</p>
+            </div>
+        </div>
+
+{% endblock %}

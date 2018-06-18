@@ -1,0 +1,16 @@
+{% extends 'sections/section.twig' %}
+
+{% set section_classes = ['text', 'fit-height'] %}
+
+{% block content %}
+
+    <div class="columns">
+        <div class="column is-6-tablet is-7-desktop">
+            <h1>{{ subtitel }}</h1>
+        </div>
+        <div class="column is-6-tablet is-5-desktop">
+            <p>{{ text }}</p>
+        </div>
+    </div>
+
+{% endblock %}
