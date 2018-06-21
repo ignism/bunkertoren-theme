@@ -1,12 +1,17 @@
 <div class="footer-placeholder"></div>
 
-<footer id="footer" class="footer">
+<footer id="footer" class="footer {{ background_color }}">
     <div class="container is-fluid">
         <div class="columns is-mobile is-multiline">
             <div class="column is-6-mobile is-3-tablet">
                 <div class="content">
                     <img class="logo" src="{{ logo_url }}">
-                    <a class="is-hidden-mobile" href="">Disclaimer</a>
+                    <p class="">
+                        <br>
+                        <a href="">Facebook</a>
+                        <br>
+                        <a href="">Instagram</a>
+                    </p>
                 </div>
             </div>
             <div class="column is-6-mobile is-3-tablet">
@@ -25,14 +30,13 @@
             <div class="column is-6-mobile is-3-tablet">
                 <div class="content">
                     <p>
-                        Voor het laatste<br>
-                        nieuws en updates
+                        Voor vragen over<br>
+                        huurmogelijkheden<br>
+                        kunt u terecht bij
                     </p>
 
                     <p>
-                        <a href="">Facebook</a>
-                        <br>
-                        <a href="">Instagram</a>
+                        <a href="">Vesteda</a>
                     </p>
                 </div>
             </div>
@@ -47,8 +51,13 @@
                     </p>
                 </div>
             </div>
-            <div class="column is-hidden-tablet">
-                <a class="" href="">Disclaimer</a>
+        </div>
+        <div class="columns">
+            <div class="column">
+                <p>
+                    <br><br>
+                    <a class="" href="{{ site.link }}/disclaimer">Disclaimer</a>
+                </p>
             </div>
         </div>
     </div>

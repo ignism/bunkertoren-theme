@@ -1,0 +1,23 @@
+
+<svg width="130px" height="130px" viewBox="0 0 130 130" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home" transform="translate(-822.000000, -5500.000000)">
+            <g id="Component" transform="translate(0.000000, 5143.000000)">
+                <g id="icon" transform="translate(822.000000, 357.000000)">
+                    <g>
+                        <rect id="Rectangle-5" fill="#FFFFFF" x="0" y="0" width="130" height="130"></rect>
+                        <g id="Group-3" transform="translate(23.000000, 23.000000)" stroke="#13120D" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.312">
+                            <path d="M57,29 L25,29 C25,36.6789231 25.3243636,47.3627692 35.1818182,50.9230769 L35.1818182,67 L46.8181818,67 L46.8181818,50.9230769 C56.6727273,47.3627692 57,36.6789231 57,29 Z" id="Stroke-1"></path>
+                            <path d="M52,11.5 C52,17.850875 46.850875,23 40.5,23 C34.149125,23 29,17.850875 29,11.5 C29,5.149125 34.149125,0 40.5,0 C46.850875,0 52,5.149125 52,11.5 Z" id="Stroke-3"></path>
+                            <path d="M55.0909655,56 C71.8764828,57.8806399 84,63.278507 84,69.6439705 C84,77.5728056 65.1970345,84 42,84 C18.8015172,84 0,77.5728056 0,69.6439705 C0,63.2770714 12.1278621,57.8792043 28.9191724,56" id="Stroke-5"></path>
+                            <path d="M55.0938889,62.0135048 C62.8144444,63.3144695 68,65.7318328 68,68.4973205 C68,72.6418006 56.3592222,76 42,76 C27.6393333,76 16,72.6418006 16,68.4973205 C16,65.721329 21.2274444,63.2979636 28.9956667,62" id="Stroke-7"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

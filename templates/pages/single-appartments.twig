@@ -1,43 +1,39 @@
-{% extends "../base.twig" %}
+{% extends 'base.twig' %}
 
 {% set body_classes = ['single-appartments'] %}
+{% set navbar_image = theme.link ~ '/assets/images/back-arrow.svg' %}
+{% set navbar_link = site.link ~ '/woningen/?jump=appartments-list' %}
 
 {% block body %}
 
-    {% include '.sections/appartment-plan.twig' with {
+    {% include 'sections/appartment-plan.twig' with {
         'background_color': 'light-red',
         'blend_color': '#EAE2E1',
-        'plan_url': './assets/images/plan.png',
-        'title': 'Maaskant Penthouse',
-        'text': 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself.'
+        'plan': post.get_field('appartment_plan'),
+        'title': post.title,
+        'text': post.get_field('appartment_description')
     } %}
 
-    {% include '.sections/appartment-details.twig' with {
-    'room_list': [
-        'Woonkamer',
-        'Slaapkamer',
-        'Badkamer',
-        'WC',
-        'Gang',
-        'Berging'
-    ],
+    {% include 'sections/appartment-details.twig' with {
+    'room_list': post.get_field('appartment_rooms'),
     'statistics': [
         {
             'key': 'Gebruiksopp.',
-            'value': '115 m2'
+            'value': post.get_field('appartment_gebruiksoppervlak')
         }, {
             'key': 'Buitenruimte.',
-            'value': '33 m2'
+            'value': post.get_field('appartment_buitenruimte')
         }, {
             'key': 'Verdieping.',
-            'value': '1e'
+            'value': post.get_field('appartment_verdieping')
         }, {
             'key': 'Aantal Kamers',
-            'value': '3'
+            'value': post.get_field('appartment_aantal_kamers')
         }
     ], 
-    'aanzichten_url': './assets/images/aanzichten.png',
-    'rotation': '135deg'
+    'aanzichten_zo': post.get_field('appartment_zuidenoosten_aanzicht'),
+    'aanzichten_nw': post.get_field('appartment_noordenwesten_aanzicht'),
+    'windrichting': post.get_field('appartment_windrichting')
 } %}
 
 {% endblock %}

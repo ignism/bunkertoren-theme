@@ -5,11 +5,11 @@
 {% block content %}
 
     <div class="columns body">
-        <div class="column text-column is-hidden-mobile is-5-tablet is-4-desktop">
+        <div class="column text-column is-hidden-mobile is-4-tablet is-3-desktop">
             <h1>{{ title }}</h1>
             <p>{{ text }}</p>
         </div>
-        <div class="column plan-column is-7-tablet is-8-desktop">
+        <div class="column plan-column is-7-tablet is-8-desktop is-offset-1-tablet">
             <div class="plan-image">
                 <div class="svg-image-wrapper">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -19,7 +19,7 @@
                                 <feblend in="SourceGraphic" in2="floodFill" mode="multiply"/>
                             </filter>
                         </defs>
-                        <image xlink:href="{{ plan_url }}" height="100%" width="100%" style="filter:url(#multiplyBlend);"/>
+                        <image xlink:href="{{ TimberImage(plan).src }}" height="100%" width="100%" style="filter:url(#multiplyBlend);"/>
                     </svg>
                 </div>
                 <img src="http://placehold.it/4x2" alt="" class="image-placeholder">

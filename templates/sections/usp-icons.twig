@@ -5,46 +5,20 @@
 {% block content %}
 
     <div class="columns is-multiline">
+
+        {% for icon in icons %}
         <div class="column is-4 is-offset-1">
             <div class="columns level is-mobile">
-                <div class="column has-text-right is-3-mobile is-offset-1-mobile is-3-tablet"><img class="usp-icon" src="{{ usp_icon_green }}" alt=""></div>
-                <div class="column has-text-centered is-3-mobile is-3-tablet"><img class="usp-icon" src="{{ usp_arrow }}" alt=""></div>
+                <div class="column has-text-right is-3-mobile is-offset-1-mobile is-3-tablet"><img class="usp-icon" src="{{ TimberImage(icon.image).src }}" alt=""></div>
+                <div class="column has-text-centered is-3-mobile is-3-tablet"><img class="usp-icon" src="{{ theme.link ~ '/assets/images/usp-arrow.svg' }}" alt=""></div>
                 <div class="column has-text-left is-5-mobile is-6-tablet">
-                    <p>Wonen in een groen stadspark
+                    <p>{{ icon.text }}
                     </p>
                 </div>
             </div>
         </div>
-        <div class="column is-4 is-offset-1">
-            <div class="columns level is-mobile">
-                <div class="column has-text-right is-3-mobile is-offset-1-mobile is-3-tablet"><img class="usp-icon" src="{{ usp_icon_sustainability }}" alt=""></div>
-                <div class="column has-text-centered is-3-mobile is-3-tablet"><img class="usp-icon" src="{{ usp_arrow }}" alt=""></div>
-                <div class="column has-text-left is-5-mobile is-6-tablet">
-                    <p>Duurzaam en circulair
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="column is-4 is-offset-1">
-            <div class="columns level is-mobile">
-                <div class="column has-text-right is-3-mobile is-offset-1-mobile is-3-tablet"><img class="usp-icon" src="{{ usp_icon_location }}" alt=""></div>
-                <div class="column has-text-centered is-3-mobile is-3-tablet"><img class="usp-icon" src="{{ usp_arrow }}" alt=""></div>
-                <div class="column has-text-left is-5-mobile is-6-tablet">
-                    <p>Dichtbij het centrum
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="column is-4 is-offset-1">
-            <div class="columns level is-mobile">
-                <div class="column has-text-right is-3-mobile is-offset-1-mobile is-3-tablet"><img class="usp-icon" src="{{ usp_icon_community }}" alt=""></div>
-                <div class="column has-text-centered is-3-mobile is-3-tablet"><img class="usp-icon" src="{{ usp_arrow }}" alt=""></div>
-                <div class="column has-text-left is-5-mobile is-6-tablet">
-                    <p>Onderdeel van een community
-                    </p>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
+
     </div>
 
 {% endblock %}

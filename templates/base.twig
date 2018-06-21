@@ -31,32 +31,19 @@
     </head>
 
     <body class="{% for class in body_classes %}{{ ' ' ~ class }}{% endfor %}" data-template="base.twig">
-        
+
         {% include './components/navbar.twig' with {
-            'logo_url' : './assets/images/logo.svg',
-            'menu' : [
-                {
-                    'title': 'woningen',
-                    'link': 'appartments.html',
-                    'class': ''
-                }, {
-                    'title': 'over bunkertoren',
-                    'link': 'about.html',
-                    'class': ''
-                }, {
-                    'title': 'contact',
-                    'class': ''
-                }, {
-                    'title': 'Inschrijven',
-                    'class': 'button is-red'
-                }
-            ]
+            'logo': {
+                'image' : navbar_image,
+                'link': navbar_link
+            }
         } %}
 
         {% block body %}{% endblock %}
 
         {% include './components/footer.twig' with {
-            'logo_url' : './assets/images/logo.svg',
+            'logo_url' : theme.link ~ '/assets/images/logo.svg',
+            'background_color': footer_background_color,
             'contact' : {
                 'mail': 'info@bunkertoren.nl',
                 'phone': '+ 40 26 79 63 541'

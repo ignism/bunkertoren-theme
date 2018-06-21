@@ -1,0 +1,18 @@
+
+<svg width="88px" height="17px" viewBox="0 0 88 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home" transform="translate(-322.000000, -5322.000000)" fill="#FF4242">
+            <g id="Component" transform="translate(0.000000, 5143.000000)">
+                <g id="arrow" transform="translate(322.000000, 179.000000)">
+                    <path d="M87.5066,7.807 L87.5066,10.097 C83.7006,10.097 80.6026,13.193 80.6026,17.001 L78.3146,17.001 C78.3146,11.931 82.4386,7.807 87.5066,7.807" id="Fill-7"></path>
+                    <path d="M87.5066,7.807 L87.5066,10.097 C82.4386,10.097 78.3146,5.971 78.3146,0.903 L80.6026,0.903 C80.6026,4.709 83.7006,7.807 87.5066,7.807" id="Fill-4"></path>
+                    <polygon id="Fill-10" points="4.828 10.1928 83 10.1928 83 7.9028 4.828 7.9028"></polygon>
+                    <path d="M9.6578,9.0484 C9.6578,11.7144 7.4958,13.8764 4.8278,13.8764 C2.1618,13.8764 -0.0002,11.7144 -0.0002,9.0484 C-0.0002,6.3804 2.1618,4.2184 4.8278,4.2184 C7.4958,4.2184 9.6578,6.3804 9.6578,9.0484" id="Fill-1"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

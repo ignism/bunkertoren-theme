@@ -1,75 +1,86 @@
-{% extends "base.twig" %}
+{% extends 'base.twig' %}
 
 {% set body_classes = ['page-front', 'has-floating-message'] %}
+{% set navbar_image = theme.link ~ '/assets/images/logo.svg' %}
+{% set navbar_link = site.link %}
 
 {% block body %}
 
     {% include 'sections/splash.twig' with {
         'background_color': 'light-red',
-        'image': 'https://placehold.it/640x480',
-        'scroll_caption': 'Lees Meer'
+        'image': TimberImage(post.get_field('front_splash_image')).src('bunker-fullwidth'),
+        'text': post.get_field('front_splash_text'),
+        'agenda': post.get_field('front_splash_agenda'),
+        'scroll_caption': post.get_field('front_splash_scroll')
     } %}
 
-    {% include 'sections/text-image.twig' with {
-        'background_color': 'light-red',
-        'orientation': 'text-left',
-        'slides': [
-            {'image': 'http://placehold.it/1600x1200'},
-            {'image': 'http://placehold.it/1600x1200'}
-        ],
-        'clipping': 'is-clipped-left',
-        'header': 'BunkerToren is modern stedelijk wonen opnieuw gedefinieerd.',
-        'title': 'goed wonen',
-        'text': 'Het centrum van Eindhoven groeit. Dat wordt zichtbaar met de komst van De Bunkertoren; een woontoren van hoogwaardige kwaliteit, omringd door een groen stadpark en op steenworp afstand van Eindhoven Centraal Station. De Bunkertoren is een transformatie van het iconische bouwwerk, een voormalig studentencentrum, tot een woon gebied.'
+    {% for module in post.get_field('block_modules') %}
+
+        {% if module.acf_fc_layout == 'text_image' %}
+
+            {% include 'sections/text-image.twig' with {
+                'background_color': module.background_color,
+                'is_fullheight': module.is_fullheight,
+                'orientation': module.orientation,
+                'header': module.header,
+                'title': module.title,
+                'text': module.text,
+                'clipping': module.clipping,
+                'slides': module.slides,
+                'button': module.button_group
+            } %}
+
+        {% elseif module.acf_fc_layout == 'fullwidth_portrait' %}
+            
+            {% include 'sections/fullwidth-portrait.twig' with { 
+                'fullwidth_portrait_image': TimberImage(module.image).src('bunker-fullwidth'),
+                'floating_message': module.floating_message
+            } %}
+
+        {% elseif module.acf_fc_layout == 'usp_icons' %}
+            
+            {% include 'sections/usp-icons.twig' with {
+                'background_color': module.background_color,
+                'icons': module.icons
+            } %}
+
+        {% elseif module.acf_fc_layout == 'polygon_box' %}
+            
+            {% include 'sections/polygon-box.twig' with { 
+                'page_variation': module.variation,
+                'background_color': 'red',
+                'text': module.text,
+                'button': {
+                    'url': module.button_link,
+                    'caption': module.button_caption
+                },
+                'image': module.image,
+                'contact': {
+                    'mail': module.contact_mail,
+                    'phone': module.contact_phone
+                }
+            } %}
+
+        {% endif %}
+
+    {% endfor %}
+
+    {% include 'sections/usp-icons.twig' with {
+        'background_color': post.get_field('usp_background_color'),
+        'icons': post.get_field('usp_icons')
     } %}
 
-    {% include 'sections/text-image.twig' with { 
-        'background_color': 'light-green',
-        'orientation': 'text-right',
-        'slides': [
-            {'image': 'http://placehold.it/1600x1200'},
-            {'image': 'http://placehold.it/1600x1200'},
-            {'image': 'http://placehold.it/1600x1200'},
-            {'image': 'http://placehold.it/1600x1200'}
-        ],
-        'clipping': 'is-clipped-right',
-        'title': 'groen park',
-        'text': 'De Bunkertoren, met haar omliggende park, creëert een geweldige groenbeleving in een stedelijke setting. Een unieke plek om te wonen en te verblijven. Het park telt een verscheidenheid aan planten - en boom soorten. Ook stimuleert het de bio-diversiteit. Een plek om te relaxen  en te ontmoeten.'
-    } %}
-
-    {% include 'sections/fullwidth-portrait.twig' with { 
-        'fullwidth_portrait_image': 'http://placehold.it/2500x5000',
-        'floating_h2': 'Transformatie van BunkerToren markeert een nieuw begin aan de Noordzijde van Eindhoven.',
-        'button': 'geschiedenis'
-    } %}
-
-    {% include 'sections/text-image.twig' with { 
-        'background_color': 'light-red',
-        'orientation':' text-left',
-        'slides': [
-            {'image': 'http://placehold.it/1600x1200'},
-            {'image': 'http://placehold.it/1600x1200'}
-        ],
-        'clipping': 'is-clipped-left',
-        'title': ' Centrale Ligging',
-        'text': 'Eindhoven is in beweging. Een stad vol tech en ‘cutting edge’ design. Een plek voor ontdekking en experiment. De stad heeft een echte creatieve ondernemersgeest, een proeftuin voor innovatie en vernieuwing.'
-    } %}
-
-    {% include 'sections/usp-icons.twig' with { 
-        'usp_arrow': './assets/images/usp-arrow.svg',
-        'usp_icon_green': './assets/images/usp-icon-green.svg',
-        'usp_icon_community': './assets/images/usp-icon-community.svg',
-        'usp_icon_location': './assets/images/usp-icon-location.svg',
-        'usp_icon_sustainability': './assets/images/usp-icon-sustainability.svg'
-    } %}
-
-    {% include 'sections/polygon-box.twig' with {
+    {% include 'sections/polygon-box.twig' with { 
         'page_variation': 'front',
         'background_color': 'red',
-        'text': 'Interesse in meer details over de plannen, het bouwproces en de mogelijkheden? Schrijf je in voor informatie over beschikbaarheid.',
+        'text': post.get_field('polygon_front_text'),
+        'button': {
+            'url': post.get_field('polygon_front_button_link'),
+            'caption': post.get_field('polygon_front_button_caption')
+        },
         'contact': {
-            'mail': 'info@bunkertoren.nl',
-            'phone': '+ 40 26 79 63 541'
+            'mail': post.get_field('polygon_front_contact_mail'),
+            'phone': post.get_field('polygon_front_contact_phone')
         }
     } %}
 

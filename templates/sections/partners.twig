@@ -6,7 +6,7 @@
 
     <div class="columns">
         <div class="column text-column is-5-tablet is-4-desktop">
-            <h1>{{ title }}</h1>
+            <h1>Partners</h1>
             <p>{{ text }}</p>
         </div>
         <div class="column text-column is-7-tablet is-8-desktop">
@@ -15,9 +15,9 @@
                 {% for partner in partners %}
                     <div class="column is-6">
                         <div class="content partner">
-                            <p>{{ partner.title }}</p>
+                            <p>{{ partner.role }}</p>
                             <p class="logo">
-                                <img src="{{ partner.logo }}" alt="">
+                                <img src="{{ TimberImage(partner.logo).src }}" alt="">
                             </p>
                         </div>
                     </div>

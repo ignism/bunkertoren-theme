@@ -3,26 +3,28 @@
 {% set section_classes = ['fullwidth-portrait'] %}
 
 {% block section %}
-    {# TODO: large-portrait-image --> fullwidth-portrait-image #}
-    <img class="fullwidth-portrait-image" src="{{ fullwidth_portrait_image }}">
+    <div class="background-image" style="position: absolute; background-image: url('{{ fullwidth_portrait_image }}')">
+        <img class="placeholder fullwidth-portrait-image" src="{{ fullwidth_portrait_image }}">
+    </div>
 {% endblock %}
 
 {% block content %}
 
     <div class="float-trigger" data-trigger-from></div>
         <div class="floating-message">
-            {% if (floating_h1) %} 
-                <h1>{{ floating_h1 }}</h1>
-           {% endif %}
-           {% if (floating_h2) %} 
-                <h2>{{ floating_h2 }}</h2>
-           {% endif %}
-           {% if (floating_p) %} 
-                <p>{{ floating_p }}</p>
-           {% endif %}
-           {% if (button) %} 
-                <a href="#" class="button is-inverted">{{ button }}</a>
-           {% endif %}
+
+            {% for item in floating_message %}
+                {% if (item.acf_fc_layout == 'title') %} 
+                    <h1>{{ item.floating_h1 }}</h1>
+                {% elseif (item.acf_fc_layout == 'header') %} 
+                    <h2>{{ item.floating_h2 }}</h2>
+                {% elseif (item.acf_fc_layout == 'text') %} 
+                    <p>{{ item.floating_p }}</p>
+                {% elseif (item.acf_fc_layout == 'button') %} 
+                    <a href="{{ item.button_link }}" class="button is-inverted">{{ item.button_caption }}</a>
+                {% endif %}
+            {% endfor %}
+
         </div>
     <div class="float-trigger" data-trigger-to></div>
 

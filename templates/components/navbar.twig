@@ -1,8 +1,8 @@
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="container is-fluid">
         <div class="navbar-brand">
-            <a class="navbar-item" href="{% if back_link %}{{ back_link }}{% else %}front.html{% endif %}">
-                <img class="logo" src="{{ logo_url }}">
+            <a class="navbar-item" href="{% if back_link %}{{ back_link }}{% else %}{{ logo.link }}{% endif %}">
+                <img class="logo" src="{{ logo.image }}">
             </a>
 
             <a href="#" class="button mobile-inschrijven is-hidden-desktop">inschrijven</a>
@@ -19,9 +19,9 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="field is-grouped">
-                        {% for item in menu %}
+                        {% for item in menu.items %}
                         <p class="control">
-                            <a data-nav-{{ item.title }} class="{{ item.class|e }}" href="{{ item.link }}">
+                            <a data-nav-{{ item.title }} class="{{ item.title|menu_class }}" href="{{ item.link }}">
                                 <span>
                                     {{ item.title|e }}
                                 </span>

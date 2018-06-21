@@ -8,9 +8,9 @@
         <div class="column is-3">
             <div class="content">
                 <ul>
-                    {% for room in room_list %}
+                    {% for item in room_list %}
                         <li>{{ loop.index }}.
-                            {{ room }}</li>
+                            {{ item.room }}</li>
                     {% endfor %}
                 </ul>
             </div>
@@ -23,6 +23,30 @@
                         <div class="level-item level-right">{{ item.value }}</div>
                     </div>
                 {% endfor %}
+
+                <div class="level">
+                    <div class="level-item level-left">Zijde</div>
+                    <div class="level-item level-right">
+                        {% if windrichting == 'N' %}
+                            {% set rotation = '270deg' %}
+                        {% elseif windrichting == 'NO' %}
+                            {% set rotation = '315deg' %}
+                        {% elseif windrichting == 'O' %}
+                            {% set rotation = '0deg' %}
+                        {% elseif windrichting == 'ZO' %}
+                            {% set rotation = '45deg' %}
+                        {% elseif windrichting == 'Z' %}
+                            {% set rotation = '90deg' %}
+                        {% elseif windrichting == 'ZW' %}
+                            {% set rotation = '135deg' %}
+                        {% elseif windrichting == 'W' %}
+                            {% set rotation = '180deg' %}
+                        {% elseif windrichting == 'NW' %}
+                            {% set rotation = '225deg' %}
+                        {% endif %}
+                        <img src="{{ theme.link }}/assets/images/windrichting.svg" alt="" style="width: 50px; height: 50px; transform:rotate({{ rotation }})">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="column is-3">
@@ -33,18 +57,26 @@
                 <div class="half">
                     Oosten
                 </div>
-                <img src="{{ aanzichten_url }}" alt="">
+                <img src="{{ TimberImage(aanzichten_zo).src }}" alt="">
             </div>
         </div>
         <div class="column is-3">
             <div class="content">
-                <div class="level">
-                    <div class="level-item level-left">Noorden</div>
-                    <div class="level-item level-right">
-                        <img src="./assets/images/windrichting.svg" alt="" style="transform:rotate({{ rotation }})">
-                    </div>
+                <div class="half">
+                    Noorden
                 </div>
+                <div class="half">
+                    Westen
+                </div>
+                <img src="{{ TimberImage(aanzichten_nw).src }}" alt="">
             </div>
+        </div>
+    </div>
+
+    <div class="columns">
+        <div class="column">
+            <br><br>
+            <a href="page-appartments.html" class="button">TERUG NAAR OVERZICHT</a>
         </div>
     </div>
 

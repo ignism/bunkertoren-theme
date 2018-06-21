@@ -1,6 +1,10 @@
 {% extends 'sections/section.twig' %}
 
-{% set section_classes = ['text-image'] %}
+{% if is_fullheight %}
+    {% set section_classes = ['text-image'] %}
+{% else %}
+    {% set section_classes = ['text-image', 'fit-height'] %}
+{% endif %}
 
 {% block content %}
 
