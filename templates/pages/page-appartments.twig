@@ -19,65 +19,31 @@
 
 
     {% include 'sections/appartments-list.twig' with {
-        'header': 'Bekijk hier het uitgebreide<br>woningaanbod',
-    } %}
-
-    {# {% include 'sections/appartments-list.twig' with {
-        'header': 'Bekijk hier het uitgebreide<br>woningaanbod',
-        'appartments': [
-            {
-                'title': 'Maaskant Penthouse',
-                'area': '115-200m2',
-                'cost': 'va &euro; 9.999.999',
-                'link': 'single-appartments.html'
-            }, {
-                'title': 'Breuer Penthouse',
-                'area': '55-80m2',
-                'cost': 'va &euro; 9.999.999',
-                'link': 'single-appartments.html'
-            }, {
-                'title': 'Oak Loft',
-                'area': '63-93m2',
-                'cost': 'va &euro; 9.999.999',
-                'link': 'single-appartments.html'
-            }, {
-                'title': 'Chestnut Loft',
-                'area': '90-125m2',
-                'cost': 'va &euro; 9.999.999',
-                'link': 'single-appartments.html'
-            }, {
-                'title': 'Pine Loft',
-                'area': '145-180m2',
-                'cost': 'va &euro; 9.999.999',
-                'link': 'single-appartments.html'
-            }, {
-                'title': 'Birch Appartment',
-                'area': '164-200m2',
-                'cost': 'va &euro; 9.999.999',
-                'link': 'single-appartments.html'
-            }, 
-        ]
-    } %} #}
-
-    {% include 'sections/text-360.twig' with {
-        'clipping': 'is-clipped-left',
-        'background_color': 'light-red',
-        'orientation': 'text-right',
-        'title': post.get_field('left_360_title'),
-        'subtitle': post.get_field('left_360_appartment'),
-        'text': post.get_field('left_360_text'),
-        'image': post.get_field('left_360_image'),
-        'kuula': post.get_field('left_360_kuula')   
+        'header': post.get_field('appartment_list_header'),
+        'disclaimer': post.get_field('appartment_list_disclaimer'),
     } %}
 
     {% include 'sections/text-360.twig' with {
         'clipping': 'is-clipped-right',
         'orientation': 'text-left',
+        'background_color': 'light-red',
         'title': post.get_field('right_360_title'),
         'subtitle': post.get_field('right_360_appartment'),
         'text': post.get_field('right_360_text'),
         'image': post.get_field('right_360_image'),
-        'kuula': post.get_field('right_360_kuula')     
+        'kuula': post.get_field('right_360_kuula'),
+        'subtitle_two': post.get_field('right_360_appartment_two'),
+        'image_two': post.get_field('right_360_image_two'),
+        'kuula_two': post.get_field('right_360_kuula_two')    
+    } %}
+
+        {% include 'sections/text-360.twig' with {
+        'clipping': 'is-clipped-left',
+        'background_color': 'white',
+        'orientation': 'text-right',
+        'title': post.get_field('left_360_title'),
+        'text': post.get_field('left_360_text'),
+        'image': post.get_field('left_360_image'),
     } %}
 
 {% endblock %}

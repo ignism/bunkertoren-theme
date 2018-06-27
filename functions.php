@@ -23,8 +23,8 @@ add_filter('upload_mimes', 'cc_mime_types');
 
 function wpdocs_theme_setup()
 {
-    add_image_size('bunker-fullwidth', 1920);            // width: 1920, height: auto
-    add_image_size('bunker-large', 1280); 				 // width: 1280, height: auto
+    add_image_size('bunker-fullwidth', 2560);            // width: 1920, height: auto
+    add_image_size('bunker-large', 1920); 				 // width: 1280, height: auto
     add_image_size('bunker-landscape', 1280, 720, true); // width: 1280, height: 720, cropped
     add_image_size('bunker-portrait', 720, 1280, true);  // width: 1280, height: 720, cropped
 }
@@ -96,6 +96,25 @@ class StarterSite extends TimberSite
         $webcal_url = str_replace('http', 'webcal', $http_url);
 
         return $webcal_url;
+    }
+
+    public function remove_breaks($text)
+    {
+        $filtered = str_replace('<br>', ' ', $text);
+        $filtered = str_replace('-', ' ', $filtered);
+        $filtered = str_replace('  ', ' ', $filtered);
+
+        return $filtered;
+    }
+
+    public function title_to_class($text)
+    {
+        $filtered = str_replace('<br>', ' ', $text);
+        $filtered = str_replace('  ', ' ', $filtered);
+        $filtered = str_replace(' ', '-', $filtered);
+        $filtered = strtolower($filtered);
+        
+        return $filtered;
     }
 
     public function datum($date)
@@ -187,6 +206,10 @@ class StarterSite extends TimberSite
         $twig->addFilter('share', new Twig_SimpleFilter('share', array($this, 'share')));
         
         $twig->addFilter('datum', new Twig_SimpleFilter('datum', array($this, 'datum')));
+
+        $twig->addFilter('remove_breaks', new Twig_SimpleFilter('remove_breaks', array($this, 'remove_breaks')));
+        
+        $twig->addFilter('title_to_class', new Twig_SimpleFilter('title_to_class', array($this, 'title_to_class')));
         
         return $twig;
     }

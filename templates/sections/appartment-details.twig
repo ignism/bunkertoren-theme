@@ -4,52 +4,23 @@
 
 {% block content %}
 
-    <div class="columns">
-        <div class="column is-3">
-            <div class="content">
-                <ul>
-                    {% for item in room_list %}
-                        <li>{{ loop.index }}.
-                            {{ item.room }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-        <div class="column is-3">
+    <div class="columns is-mobile">
+        <div class="column is-6-mobile is-3-tablet">
             <div class="content">
                 {% for item in statistics %}
-                    <div class="level">
+                    <div class="level is-mobile">
                         <div class="level-item level-left">{{ item.key }}</div>
                         <div class="level-item level-right">{{ item.value }}</div>
                     </div>
                 {% endfor %}
-
-                <div class="level">
-                    <div class="level-item level-left">Zijde</div>
-                    <div class="level-item level-right">
-                        {% if windrichting == 'N' %}
-                            {% set rotation = '270deg' %}
-                        {% elseif windrichting == 'NO' %}
-                            {% set rotation = '315deg' %}
-                        {% elseif windrichting == 'O' %}
-                            {% set rotation = '0deg' %}
-                        {% elseif windrichting == 'ZO' %}
-                            {% set rotation = '45deg' %}
-                        {% elseif windrichting == 'Z' %}
-                            {% set rotation = '90deg' %}
-                        {% elseif windrichting == 'ZW' %}
-                            {% set rotation = '135deg' %}
-                        {% elseif windrichting == 'W' %}
-                            {% set rotation = '180deg' %}
-                        {% elseif windrichting == 'NW' %}
-                            {% set rotation = '225deg' %}
-                        {% endif %}
-                        <img src="{{ theme.link }}/assets/images/windrichting.svg" alt="" style="width: 50px; height: 50px; transform:rotate({{ rotation }})">
-                    </div>
-                </div>
             </div>
         </div>
-        <div class="column is-3">
+        <div class="column is-6-mobile is-3-tablet">
+            <div class="content">
+                <img src="{{ TimberImage(aanzichten_floor_plan).src }}" alt="">
+            </div>
+        </div>
+        <div class="column is-6-mobile is-3-tablet">
             <div class="content">
                 <div class="half">
                     Zuiden
@@ -57,10 +28,11 @@
                 <div class="half">
                     Oosten
                 </div>
-                <img src="{{ TimberImage(aanzichten_zo).src }}" alt="">
+                <img src="{{ TimberImage(aanzichten_no).src }}" alt="">
+                
             </div>
         </div>
-        <div class="column is-3">
+        <div class="column is-6-mobile is-3-tablet">
             <div class="content">
                 <div class="half">
                     Noorden
@@ -68,7 +40,7 @@
                 <div class="half">
                     Westen
                 </div>
-                <img src="{{ TimberImage(aanzichten_nw).src }}" alt="">
+                <img src="{{ TimberImage(aanzichten_zw).src }}" alt="">
             </div>
         </div>
     </div>
@@ -76,7 +48,7 @@
     <div class="columns">
         <div class="column">
             <br><br>
-            <a href="page-appartments.html" class="button">TERUG NAAR OVERZICHT</a>
+            <a href="{{ site.link }}/woningen/?jump=appartments-list" class="button">TERUG NAAR OVERZICHT</a>
         </div>
     </div>
 

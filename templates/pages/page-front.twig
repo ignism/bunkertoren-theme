@@ -1,10 +1,12 @@
 {% extends 'base.twig' %}
 
-{% set body_classes = ['page-front', 'has-floating-message'] %}
+{% set body_classes = ['page-front', 'has-floating-message', 'has-360-views'] %}
 {% set navbar_image = theme.link ~ '/assets/images/logo.svg' %}
 {% set navbar_link = site.link %}
 
 {% block body %}
+
+    {% include 'components/fullscreen-360.twig' %}
 
     {% include 'sections/splash.twig' with {
         'background_color': 'light-red',
@@ -12,6 +14,18 @@
         'text': post.get_field('front_splash_text'),
         'agenda': post.get_field('front_splash_agenda'),
         'scroll_caption': post.get_field('front_splash_scroll')
+    } %}
+
+
+    {% include 'sections/text-360-front.twig' with {
+        'clipping': 'is-clipped-left',
+        'background_color': 'white',
+        'header': post.get_field('left_360_header'),
+        'title': post.get_field('left_360_title'),
+        'subtitle': post.get_field('left_360_appartment'),
+        'text': post.get_field('left_360_text'),
+        'image': post.get_field('left_360_image'),
+        'kuula': post.get_field('left_360_kuula')   
     } %}
 
     {% for module in post.get_field('block_modules') %}
@@ -37,30 +51,6 @@
                 'floating_message': module.floating_message
             } %}
 
-        {% elseif module.acf_fc_layout == 'usp_icons' %}
-            
-            {% include 'sections/usp-icons.twig' with {
-                'background_color': module.background_color,
-                'icons': module.icons
-            } %}
-
-        {% elseif module.acf_fc_layout == 'polygon_box' %}
-            
-            {% include 'sections/polygon-box.twig' with { 
-                'page_variation': module.variation,
-                'background_color': 'red',
-                'text': module.text,
-                'button': {
-                    'url': module.button_link,
-                    'caption': module.button_caption
-                },
-                'image': module.image,
-                'contact': {
-                    'mail': module.contact_mail,
-                    'phone': module.contact_phone
-                }
-            } %}
-
         {% endif %}
 
     {% endfor %}
@@ -84,7 +74,7 @@
         }
     } %}
 
-    {% include 'sections/news.twig' with {
+    {# {% include 'sections/news.twig' with {
         'news' : [
             {
                 'background_image': 'http://placehold.it/1600x900',
@@ -96,6 +86,6 @@
                 'excerpt': 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit…'
             }
         ]
-    } %}
+    } %} #}
 
 {% endblock %}

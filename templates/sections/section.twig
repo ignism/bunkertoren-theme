@@ -1,6 +1,6 @@
 {% block before %}{% endblock %}
 
-<section class="section{% for class in section_classes %}{{ ' ' ~ class }}{% endfor %}" data-background-color="{% if background_color %}{{ background_color }}{% else %}white{% endif %}">
+<section class="section{% for class in section_classes %}{{ ' ' ~ class }}{% endfor %} {{ title|title_to_class }}" data-background-color="{% if background_color %}{{ background_color }}{% else %}white{% endif %}">
     
     {% block section %}{% endblock %}
     

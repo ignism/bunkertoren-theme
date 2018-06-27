@@ -21,9 +21,9 @@
                     <div class="field is-grouped">
                         {% for item in menu.items %}
                         <p class="control">
-                            <a data-nav-{{ item.title }} class="{{ item.title|menu_class }}" href="{{ item.link }}">
+                            <a data-nav-{{ item.slug|remove_breaks }} class="{{ item.slug|menu_class }} navbar-{{ item.slug|remove_breaks }}" {% if item.slug|remove_breaks == 'inschrijven' %} target="_blank" {% endif %} href="{{ item.link }}">
                                 <span>
-                                    {{ item.title|e }}
+                                    {{ item.slug|remove_breaks }}
                                 </span>
                             </a>
                         </p>

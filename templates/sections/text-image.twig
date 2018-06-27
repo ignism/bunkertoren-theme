@@ -9,13 +9,9 @@
 {% block content %}
 
     {% if orientation == 'text-left' %}
-        {% include 'sections/partials/text-image-left.twig' with {
-            'clipping': 'is-clipped-left'
-        } %}
+        {% include 'sections/partials/text-image-left.twig' %}
     {% else %}
-        {% include 'sections/partials/text-image-right.twig' with {
-            'clipping': 'is-clipped-right'
-        } %}
+        {% include 'sections/partials/text-image-right.twig' %}
     {% endif %}
 
 {% endblock %}

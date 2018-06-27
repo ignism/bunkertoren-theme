@@ -18,7 +18,7 @@
         </title>
         <meta name="description" content="{{ site.description }}">
         <link rel="stylesheet" href="{{ site.theme.link }}/style.css" type="text/css" media="screen"/>
-        <link rel="stylesheet" href="{{ site.theme.link }}/shared.bundle.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="{{ site.theme.link }}/shared.bundle.css?v=0.1" type="text/css" media="screen"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +30,9 @@
         {% block head %}{% endblock %}
     </head>
 
-    <body class="{% for class in body_classes %}{{ ' ' ~ class }}{% endfor %}" data-template="base.twig">
+    <body onload="hideLoader()" class="{% for class in body_classes %}{{ ' ' ~ class }}{% endfor %}" data-template="base.twig">
+
+        {% include './components/loader.twig' %}
 
         {% include './components/navbar.twig' with {
             'logo': {
@@ -45,13 +47,13 @@
             'logo_url' : theme.link ~ '/assets/images/logo.svg',
             'background_color': footer_background_color,
             'contact' : {
-                'mail': 'info@bunkertoren.nl',
-                'phone': '+ 40 26 79 63 541'
+                'mail': 'nieuwbouw@eravbtmakelaars.nl',
+                'phone': '088 54 54 645'
             }
 
         } %}
 
-        <script src="{{ site.theme.link }}/shared.bundle.js"></script>
+        <script src="{{ site.theme.link }}/shared.bundle.js?v=0.1"></script>
 
         {{ function('wp_footer') }}
 

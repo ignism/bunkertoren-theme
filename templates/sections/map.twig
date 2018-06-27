@@ -2,24 +2,44 @@
 
 {% set section_classes = ['map'] %}
 
+{% if is_fullheight %}
+    {% set section_classes = ['map'] %}
+{% else %}
+    {% set section_classes = ['map', 'fit-height'] %}
+{% endif %}
+
 {% block content %}
 
-        <div class="columns body {% if header %}has-header{% endif %}">
-            <div class="column text-column is-hidden-mobile is-5-tablet is-4-desktop">
+    <div class="columns body {% if header %}has-header{% endif %}">
+        <div class="column text-column is-hidden-mobile is-5-tablet is-4-desktop">
+            <div data-appear="">
                 <h1>{{ title }}</h1>
-                <p>{{ text }}</p>
             </div>
-            <div class="column map-column is-6-tablet is-7-desktop is-offset-1">
-                <div class="map is-clipped-right">
-                    <div class="background-image" style="background-image: url('{{ map }}')">
-                        <img src="http://placehold.it/4x3" alt="" class="placeholder">
-                    </div>
-                </div>
-            </div>
-            <div class="column is-hidden-tablet">
-                <h1>{{ title }}</h1>
+            <div data-appear="" data-appear-delay="200ms">
                 <p>{{ text }}</p>
             </div>
         </div>
+        <div class="column map-column is-6-tablet is-7-desktop is-offset-1">
+            <div class="map is-clipped-right">
+                {# <div class="background-image" style="background-image: url('{{ map }}')"> 
+                        <img src="{{ map }}" alt="" class="placeholder"> 
+                    </div> #}
+                <div class="map-wrapper">
+                    <img src="{{ map }}" alt="" class="">
+                    <div class="map-link-button">
+                        <a href="{{ map_link }}" target="_blank"><img src="{{ map_button }}" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column is-hidden-tablet">
+            <div data-appear="">
+                <h1>{{ title }}</h1>
+            </div>
+            <div data-appear="" data-appear-delay="200ms">
+                <p>{{ text }}</p>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

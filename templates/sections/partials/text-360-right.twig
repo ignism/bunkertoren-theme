@@ -9,9 +9,9 @@
                 <img src="http://placehold.it/4x3" alt="" class="placeholder">
             </div>
 
-            <div class="button-fullscreen  is-hidden-mobile" data-kuula="{{ kuula|share }}" style="margin-left: 6%">
+            {# <div class="button-fullscreen  is-hidden-mobile" data-kuula="{{ kuula|share }}" style="margin-left: 6%">
                 <img src="{{ theme.link }}/assets/images/open360.svg" alt="">
-            </div>
+            </div> #}
         </div>
     </div>
     <div class="column is-7-tablet is-offset-5-tablet is-8-desktop is-offset-4-desktop">
@@ -20,7 +20,11 @@
         </h3>
     </div>
     <div class="column is-hidden-tablet">
-        <h1>{{ title }}</h1>
-        <p>{{ text }}</p>
+        <div data-appear="">
+            <h1>{{ title }}</h1>
+        </div>
+        <div data-appear="" data-appear-delay="200ms">
+            <p>{{ text }}</p>
+        </div>
     </div>
 </div>

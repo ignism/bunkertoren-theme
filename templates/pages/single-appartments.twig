@@ -10,6 +10,8 @@
         'background_color': 'light-red',
         'blend_color': '#EAE2E1',
         'plan': post.get_field('appartment_plan'),
+        'plan_two': post.get_field('appartment_plan_two'),
+        'plan_three': post.get_field('appartment_plan_three'),
         'title': post.title,
         'text': post.get_field('appartment_description')
     } %}
@@ -21,18 +23,19 @@
             'key': 'Gebruiksopp.',
             'value': post.get_field('appartment_gebruiksoppervlak')
         }, {
-            'key': 'Buitenruimte.',
+            'key': 'Buitenruimte',
             'value': post.get_field('appartment_buitenruimte')
         }, {
-            'key': 'Verdieping.',
+            'key': 'Verdieping',
             'value': post.get_field('appartment_verdieping')
         }, {
             'key': 'Aantal Kamers',
             'value': post.get_field('appartment_aantal_kamers')
         }
     ], 
-    'aanzichten_zo': post.get_field('appartment_zuidenoosten_aanzicht'),
-    'aanzichten_nw': post.get_field('appartment_noordenwesten_aanzicht'),
+    'aanzichten_no': post.get_field('appartment_noordoost_aanzicht'),
+    'aanzichten_zw': post.get_field('appartment_zuidwest_aanzicht'),
+    'aanzichten_floor_plan': post.get_field('appartment_floor_plan'),
     'windrichting': post.get_field('appartment_windrichting')
 } %}
 
