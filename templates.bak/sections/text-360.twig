@@ -5,12 +5,12 @@
 {% block content %}
 
     {% if orientation == 'text-left' %}
-        {% include 'sections/partials/text-360-front-left.twig' with {
-            'clipping': 'is-clipped-left'
+        {% include 'sections/partials/text-360-left.twig' with {
+            'clipping': 'is-clipped-right'
         } %}
     {% else %}
-        {% include 'sections/partials/text-360-front-right.twig' with {
-            'clipping': 'is-clipped-right'
+        {% include 'sections/partials/text-360-right.twig' with {
+            'clipping': 'is-clipped-left'
         } %}
     {% endif %}
 

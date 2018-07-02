@@ -10,22 +10,24 @@
 
 {% block content %}
 
-    <div class="float-trigger" data-trigger-from></div>
-        <div class="floating-message">
+    <div class="float-wrapper">
+        <div class="float-trigger" data-trigger-from></div>
+            <div class="floating-message">
 
-            {% for item in floating_message %}
-                {% if (item.acf_fc_layout == 'title') %} 
-                    <h1>{{ item.floating_h1 }}</h1>
-                {% elseif (item.acf_fc_layout == 'header') %} 
-                    <h2>{{ item.floating_h2 }}</h2>
-                {% elseif (item.acf_fc_layout == 'text') %} 
-                    <p>{{ item.floating_p }}</p>
-                {% elseif (item.acf_fc_layout == 'button') %} 
-                    <a href="{{ item.button_link }}" class="button is-inverted">{{ item.button_caption }}</a>
-                {% endif %}
-            {% endfor %}
+                {% for item in floating_message %}
+                    {% if (item.acf_fc_layout == 'title') %} 
+                        <h1>{{ item.floating_h1 }}</h1>
+                    {% elseif (item.acf_fc_layout == 'header') %} 
+                        <h2>{{ item.floating_h2 }}</h2>
+                    {% elseif (item.acf_fc_layout == 'text') %} 
+                        <p>{{ item.floating_p }}</p>
+                    {% elseif (item.acf_fc_layout == 'button') %} 
+                        <a href="{{ item.button_link }}" class="button is-inverted">{{ item.button_caption }}</a>
+                    {% endif %}
+                {% endfor %}
 
-        </div>
-    <div class="float-trigger" data-trigger-to></div>
+            </div>
+        <div class="float-trigger" data-trigger-to></div>
+    </div>
 
 {% endblock %}

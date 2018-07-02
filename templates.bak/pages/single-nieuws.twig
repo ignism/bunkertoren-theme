@@ -1,0 +1,17 @@
+{% extends 'base.twig' %}
+
+{% set body_classes = ['single-nieuws'] %}
+{% set navbar_image = theme.link ~ '/assets/images/back-arrow.svg' %}
+{% set navbar_link = site.link ~ '/?jump=news' %}
+
+{% block body %}
+
+    {% include 'sections/news-item.twig' with {
+        'date': post.date('D-j-n-Y'),
+        'title': post.title,
+        'text': post.get_field('text'),
+        'slider': post.get_field('images')
+    } %}
+
+{% endblock %}
+

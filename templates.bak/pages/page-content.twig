@@ -1,0 +1,23 @@
+{% extends 'base.twig' %}
+
+{% set body_classes = ['page-content'] %}
+{% set navbar_image = theme.link ~ '/assets/images/logo.svg' %}
+{% set navbar_link = site.link %}
+
+{% block body %}
+
+    {% include 'components/header.twig' with {
+        'header': post.title,
+        'background_color': 'light-gold'
+    } %}
+
+    {% for item in post.get_field('content_items') %}
+
+        {% include 'sections/text.twig' with {
+            'subtitel': item.title,
+            'text': item.text
+        } %}
+
+    {% endfor %}
+
+{% endblock %}

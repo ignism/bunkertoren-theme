@@ -1,0 +1,20 @@
+{% extends 'sections/section.twig' %}
+
+{% set section_classes = ['splash'] %}
+
+{% block content %}
+
+    {% if content == '360' %}
+        {% include 'sections/partials/splash-360.twig' %}
+    {% else %}
+        {% include 'sections/partials/splash-image.twig' %}
+    {% endif %}
+
+{% endblock %}
+
+{% block after %}
+
+    {# TODO: Changed .below-landing to .after-splash #}
+    <div class="after-splash"></div>
+
+{% endblock %}

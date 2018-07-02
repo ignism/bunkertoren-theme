@@ -1,0 +1,80 @@
+<div class="columns body is-multiline slider-wrapper">
+    <div class="column slider-column clipped-360-column is-7-tablet is-8-desktop">
+        <div class="clipped-360 {{ clipping }}">
+            <div class="slider">
+                <div class="wrapper-360" style="position: relative">
+                    <div class="background-image" style="background-image: url('{{ TimberImage(image).src('bunker-large') }}')">
+                        <img src="http://placehold.it/4x3" alt="" class="placeholder">
+                    </div>
+
+                    <div class="button-fullscreen" data-kuula="{{ kuula|share }}" style="margin-left: -6%">
+                        <img src="{{ theme.link }}/assets/images/open360.svg" alt="">
+                        <div class="script-placeholder" style="visibility: hidden"></div>
+                    </div>
+                </div>
+
+                <div class="wrapper-360" style="position: relative">
+                    <div class="background-image" style="background-image: url('{{ TimberImage(image_two).src('bunker-large') }}')">
+                        <img src="http://placehold.it/4x3" alt="" class="placeholder">
+                    </div>
+
+                    <div class="button-fullscreen" data-kuula="{{ kuula_two|share }}" style="margin-left: -6%">
+                        <img src="{{ theme.link }}/assets/images/open360.svg" alt="">
+                        <div class="script-placeholder" style="visibility: hidden"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column is-hidden-tablet">
+        <div class="appartment-name">
+            <h3 class="subtitle-360-0-mobile is-active">
+                {{ subtitle }}
+            </h3>
+
+            <h3 class="subtitle-360-1-mobile">
+                {{ subtitle_two }}
+            </h3>
+        </div>
+    </div>
+    <div class="column is-hidden-tablet">
+        <div class="slider-navbar">
+            {% for item in 0..1 %}
+                <div data-slider-index="{{ loop.index0 }}" class="nav-item-360 slider-nav-item{% if loop.first %} is-active{% endif %}">
+                    <span>0{{ loop.index }}</span>
+                </div>
+            {% endfor %}
+            <div class="slider-nav-spacer"></div>
+            <div class="slider-nav-spacer"></div>
+        </div>
+    </div>
+    <div class="column text-column is-5-tablet is-4-desktop">
+        <div data-appear="">
+            <h1>{{ title }}</h1>
+        </div>
+        <div data-appear="" data-appear-delay="200ms">
+            <p>{{ text }}</p>
+        </div>
+
+        <div class="slider-navbar is-hidden-mobile">
+            {% for item in 0..1 %}
+                <div data-slider-index="{{ loop.index0 }}" class="nav-item-360 slider-nav-item{% if loop.first %} is-active{% endif %}">
+                    <span>0{{ loop.index }}</span>
+                </div>
+            {% endfor %}
+            <div class="slider-nav-spacer"></div>
+            <div class="slider-nav-spacer"></div>
+        </div>
+    </div>
+    <div class="column is-hidden-mobile is-7-tablet is-8-desktop">
+        <div class="appartment-name">
+            <h3 class="subtitle-360-0 is-active">
+                {{ subtitle }}
+            </h3>
+
+            <h3 class="subtitle-360-1">
+                {{ subtitle_two }}
+            </h3>
+        </div>
+    </div>
+</div>

@@ -1,20 +1,17 @@
 {% extends 'base.twig' %}
 
-{% set body_classes = ['single-appartments', 'has-360-views'] %}
+{% set body_classes = ['single-appartments'] %}
 {% set navbar_image = theme.link ~ '/assets/images/back-arrow.svg' %}
 {% set navbar_link = site.link ~ '/woningen/?jump=appartments-list' %}
 
 {% block body %}
 
-    {% include 'components/fullscreen-360.twig' %}
-    
     {% include 'sections/appartment-plan.twig' with {
         'background_color': 'light-red',
         'blend_color': '#EAE2E1',
         'plan': post.get_field('appartment_plan'),
         'plan_two': post.get_field('appartment_plan_two'),
         'plan_three': post.get_field('appartment_plan_three'),
-        'flex': post.get_field('appartment_flex'),
         'title': post.title,
         'text': post.get_field('appartment_description')
     } %}

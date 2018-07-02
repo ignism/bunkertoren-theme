@@ -1,0 +1,22 @@
+<div class="splash-body is-clipped-right avoid-navbar splash-360 background-image" style="background-image:url('{{ TimberImage(image).src }}')">
+
+    <div class="gradient-overlay"></div>
+
+    <div class="content">
+        <div class="columns is-mobile">
+            <div class="column is-7-mobile is-6-tablet is-6-desktop is-5-widescreen is-4-fullhd">
+                <p class="aankondiging">{{ text }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="scroll-down is-hidden-mobile">
+        <span class="button-scroll-down">{{ scroll_caption }}</span>
+        <div class="vertical-line"></div>
+    </div>
+
+    <div class="button-fullscreen" data-kuula="{{ kuula|share }}">
+        <img src="{{ theme.link }}/assets/images/open360.svg" alt="">
+    </div>
+
+</div>

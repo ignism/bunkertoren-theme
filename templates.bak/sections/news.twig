@@ -1,0 +1,33 @@
+{% extends 'sections/section.twig' %}
+
+{% set section_classes = ['news', 'fit-height'] %}
+
+{% block content %}
+
+        <div class="level">
+            <div class="level-item level-left">
+                <h1 class="header">nieuws</h1>
+            </div>
+            <div class="level-item level-right">
+                <a href="#" class="button disabled">nieuwer</a>
+                <a href="#" class="button">ouder</a>
+            </div>
+        </div>
+        <div class="columns">
+            {% for item in news %}
+                <div class="column is-6">
+
+                    <div class="background-image" style="background-image: url('{{ item.background_image }}')">
+                        <img class="placeholder" src="http://placehold.it/3x2">
+                    </div>
+                    <p class="excerpt">
+                        {{ item.excerpt }}
+                    </p>
+                    <p class="date">
+                        {{ item.date }}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% if header %}
+
+    <div class="columns header" style="padding-top: 1.5rem;">
+        <div class="column is-7-tablet is-8-desktop">
+            <h2 data-appear="" class="no-limit">{{ header }}</h2>
+        </div>
+    </div>
+
+{% endif %}
+
+<div class="columns body is-multiline">
+    <div class="column clipped-360-column is-7-tablet is-8-desktop">
+        <div class="clipped-360 {{ clipping }}">
+            <div class="background-image" style="background-image: url('{{ TimberImage(image).src('bunker-large') }}')">
+                <img src="http://placehold.it/4x3" alt="" class="placeholder">
+            </div>
+
+            <div class="button-fullscreen  is-hidden-mobile" data-kuula="{{ kuula|share }}" style="margin-left: -6%">
+                <img src="{{ theme.link }}/assets/images/open360.svg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="column text-column is-hidden-mobile is-5-tablet is-4-desktop">
+        <div data-appear="">
+            <h1>{{ title }}</h1>
+        </div>
+        <div data-appear="" data-appear-delay="200ms">
+            <p>{{ text }}</p>
+        </div>
+
+        {% if button | length > 0 %}
+            <div data-appear="" data-appear-delay="400ms">
+                <a href="{{ button[0].button_link }}{{ button[0].button_link_suffix }}" class="button">{{ button[0].button_caption }}</a>
+            </div>
+        {% endif %}
+    </div>
+    <div class="column is-7-tablet is-8-desktop">
+        <h3>
+            {{ subtitle }}
+        </h3>
+    </div>
+    <div class="column is-hidden-tablet">
+        <div data-appear="">
+            <h1>{{ title }}</h1>
+        </div>
+        <div data-appear="" data-appear-delay="200ms">
+            <p>{{ text }}</p>
+        </div>
+
+        {% if button | length > 0 %}
+            <div data-appear="" data-appear-delay="400ms">
+                <a href="{{ button[0].button_link }}{{ button[0].button_link_suffix }}" class="button">{{ button[0].button_caption }}</a>
+            </div>
+        {% endif %}
+    </div>
+</div>

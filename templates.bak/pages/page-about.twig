@@ -1,0 +1,72 @@
+{% extends 'base.twig' %}
+
+{% set body_classes = ['page-about'] %}
+{% set navbar_image = theme.link ~ '/assets/images/logo.svg' %}
+{% set navbar_link = site.link %}
+{% set footer_background_color = post.get_field('footer_background_color') %}
+
+{% block body %}
+
+    {% include 'components/header.twig' with {
+        'header': post.title|trim,
+        'background_color': 'light-gold'
+    } %}
+
+    {% for module in post.get_field('block_modules') %}
+
+        {% if module.acf_fc_layout == 'text_image' %}
+
+            {% include 'sections/text-image.twig' with {
+                'background_color': module.background_color,
+                'is_fullheight': module.is_fullheight,
+                'orientation': module.orientation,
+                'header': module.header,
+                'title': module.title,
+                'text': module.text,
+                'clipping': module.clipping,
+                'slides': module.slides,
+                'button': module.button_group
+            } %}
+
+        {% elseif module.acf_fc_layout == 'fullwidth_portrait' %}
+            
+            {% include 'sections/fullwidth-portrait.twig' with { 
+                'fullwidth_portrait_image': TimberImage(module.image).src('bunker-fullwidth'),
+                'floating_message': module.floating_message
+            } %}
+
+        {% elseif module.acf_fc_layout == 'text_map' %}
+            
+            {% include 'sections/map.twig' with {
+                'background_color': module.background_color,
+                'is_fullheight': module.is_fullheight,
+                'title': module.title,
+                'text': module.text,
+                'clipping': module.clipping,
+                'map': theme.link ~ '/assets/images/BKR_map_DD_V2.jpg',
+                'map_button': theme.link ~ '/assets/images/logo-b.svg',
+                'map_link': 'https://goo.gl/maps/7ZaFyj4mLp32'
+            } %}
+
+        {% endif %}
+
+    {% endfor %}
+
+    {% if post.get_field('polygon_about_image') or post.get_field('polygon_about_text') %}
+        {% include 'sections/polygon-box.twig' with {
+            'page_variation': 'about',
+            'background_color': 'red',
+            'text': post.get_field('polygon_about_text'),
+            'image': post.get_field('polygon_about_image'),
+        } %}
+    {% endif %}
+   
+    {% include 'sections/partners.twig' with {
+        'background_color': 'light-gold',
+        'section_class': 'fit-height',
+        'text': post.get_field('partners_text'),
+        'partners': post.get_field('partners')
+    } %}
+
+{% endblock %}
+

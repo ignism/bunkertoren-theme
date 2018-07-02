@@ -1,0 +1,23 @@
+<div id="page-loader" class="overlay page-loader is-active is-visible">
+    <div class="content">
+        <div class="bunker-loader">
+            <div class="part"></div>
+            <div class="part"></div>
+            <div class="part"></div>
+            <div class="part"></div>
+            <div class="part"></div>
+            <div class="part"></div>
+            <div class="part"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function hideLoader() {
+        var loader = document.getElementById('page-loader');
+        loader.classList.remove('is-visible');
+        setTimeout(function () {
+            loader.classList.remove('is-active');
+        }, 400);
+    }
+</script>

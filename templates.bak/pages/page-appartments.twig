@@ -1,0 +1,49 @@
+{% extends 'base.twig' %}
+
+{% set body_classes = ['page-appartments', 'has-360-views'] %}
+{% set navbar_image = theme.link ~ '/assets/images/logo.svg' %}
+{% set navbar_link = site.link %}
+
+{% block body %}
+
+    {% include 'components/fullscreen-360.twig' %}
+
+    {% include 'sections/splash.twig' with {
+        'background_color': 'light-red',
+        'content': '360',
+        'text': post.get_field('splash_360_appartment'),
+        'scroll_caption': post.get_field('splash_360_scroll_button_caption'),
+        'image': post.get_field('splash_360_image'),
+        'kuula': post.get_field('splash_360_kuula')
+    } %}
+
+
+    {% include 'sections/appartments-list.twig' with {
+        'header': post.get_field('appartment_list_header'),
+        'disclaimer': post.get_field('appartment_list_disclaimer'),
+    } %}
+
+    {% include 'sections/text-360.twig' with {
+        'clipping': 'is-clipped-right',
+        'orientation': 'text-left',
+        'background_color': 'light-red',
+        'title': post.get_field('right_360_title'),
+        'subtitle': post.get_field('right_360_appartment'),
+        'text': post.get_field('right_360_text'),
+        'image': post.get_field('right_360_image'),
+        'kuula': post.get_field('right_360_kuula'),
+        'subtitle_two': post.get_field('right_360_appartment_two'),
+        'image_two': post.get_field('right_360_image_two'),
+        'kuula_two': post.get_field('right_360_kuula_two')    
+    } %}
+
+        {% include 'sections/text-360.twig' with {
+        'clipping': 'is-clipped-left',
+        'background_color': 'white',
+        'orientation': 'text-right',
+        'title': post.get_field('left_360_title'),
+        'text': post.get_field('left_360_text'),
+        'image': post.get_field('left_360_image'),
+    } %}
+
+{% endblock %}

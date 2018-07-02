@@ -1,0 +1,17 @@
+{% extends 'base.twig' %}
+
+{% set navbar_image = theme.link ~ '/assets/images/logo.svg' %}
+{% set navbar_link = site.link %}
+
+{% block body %}
+
+    {% include 'components/header.twig' with {
+        'header': '&mdash;404',
+        'background_color': 'white'
+    } %}
+
+    {% include 'sections/text.twig' with {
+        'subtitel': 'Pagina niet gevonden'
+    } %}
+
+{% endblock %}

@@ -1,0 +1,36 @@
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container is-fluid">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="{% if back_link %}{{ back_link }}{% else %}{{ logo.link }}{% endif %}">
+                <img class="logo" src="{{ logo.image }}">
+            </a>
+
+            <a href="#" class="button mobile-inschrijven is-hidden-desktop">inschrijven</a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+
+        </div>
+
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="field is-grouped">
+                        {% for item in menu.items %}
+                        <p class="control">
+                            <a data-nav-{{ item.slug|remove_breaks }} class="{{ item.slug|menu_class }} navbar-{{ item.slug|remove_breaks }}" {% if item.slug|remove_breaks == 'inschrijven' %} target="_blank" {% endif %} href="{{ item.link }}">
+                                <span>
+                                    {{ item.slug|remove_breaks }}
+                                </span>
+                            </a>
+                        </p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

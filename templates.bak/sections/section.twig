@@ -1,0 +1,15 @@
+{% block before %}{% endblock %}
+
+<section class="section{% for class in section_classes %}{{ ' ' ~ class }}{% endfor %} {{ title|title_to_class }}" data-background-color="{% if background_color %}{{ background_color }}{% else %}white{% endif %}">
+    
+    {% block section %}{% endblock %}
+    
+    <div class="container is-fluid">
+
+        {% block content %}{% endblock %}
+
+    </div>
+
+</section>
+
+{% block after %}{% endblock %}

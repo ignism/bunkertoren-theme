@@ -1,0 +1,17 @@
+{% extends 'sections/section.twig' %}
+
+{% set section_classes = ['news', 'fit-height'] %}
+
+{% block content %}
+
+    <p>{{ date|datum }}</p>
+    <h2>{{ title }}</h2>
+    <p>{{ text }}</p>
+
+    {% for slide in slider %}
+
+        <p><img src="{{ TimberImage(slide.image).src('bunker-large') }}" alt=""></p>
+
+    {% endfor %}
+
+{% endblock %}
