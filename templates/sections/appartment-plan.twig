@@ -4,7 +4,7 @@
 
 {% block content %}
 
-    <div class="columns body{% if plan_two %} slider-wrapper{% endif %}">
+    <div class="columns body{% if flex | length > 1 %} slider-wrapper{% endif %}">
         <div class="column text-column is-hidden-mobile is-4-tablet is-3-desktop">
             <h1>{{ title }}</h1>
             <p>{{ text }}</p>
@@ -20,12 +20,14 @@
                         </div>
 
                     {% endfor %}
+                    
+                    {% if flex | length < 4 %}
+                        {% for spacer in 1..(4 - flex|length) %}
 
-                    {% for spacer in 1..(4 - flex|length) %}
+                            <div class="slider-nav-spacer"></div>
 
-                        <div class="slider-nav-spacer"></div>
-
-                    {% endfor %}
+                        {% endfor %}
+                    {% endif %}
 
                 </div>
 
@@ -56,8 +58,8 @@
                     {% else %}
 
                         <div class="plan-image">
-                            <div class="background-image is-clipped-right" style="background-image: url('{{ TimberImage(item.image).src }}')">
-                                <div class="button-fullscreen" data-kuula="{{ item.kuula|share }}" style="margin-left: -6%">
+                            <div class="background-image" style="background-image: url('{{ TimberImage(item.image).src }}')">
+                                <div class="button-fullscreen" data-kuula="{{ item.kuula|share }}" style="margin-left: 0">
                                     <img src="{{ theme.link }}/assets/images/open360.svg" alt="">
                                 </div>
                                 <img src="http://placehold.it/8x5" alt="" class="image-placeholder">

@@ -22,6 +22,12 @@
             <div data-appear="" data-appear-delay="200ms">
                 <p>{{ text }}</p>
             </div>
+
+            {% if button|length > 0 %}
+            <div data-appear="" data-appear-delay="400ms">
+                <a href="{{ button[0].button_link }}{{ button[0].button_link_suffix }}" class="button">{{ button[0].button_caption }}</a>
+            </div>
+        {% endif %}
         </div>
         <div class="column clipped-360-column is-7-tablet is-8-desktop">
             <div class="clipped-360 {{ clipping }}">

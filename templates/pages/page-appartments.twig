@@ -37,13 +37,14 @@
         'kuula_two': post.get_field('right_360_kuula_two')    
     } %}
 
-        {% include 'sections/text-360.twig' with {
-        'clipping': 'is-clipped-left',
-        'background_color': 'white',
-        'orientation': 'text-right',
+        {% include 'sections/text-image.twig' with {
+        'clipping': post.get_field('left_360_clipping'),
+        'background_color': post.get_field('left_360_background_color'),
+        'orientation': post.get_field('left_360_orientation'),
         'title': post.get_field('left_360_title'),
         'text': post.get_field('left_360_text'),
-        'image': post.get_field('left_360_image'),
+        'slides': post.get_field('left_360_slides'),
+        'is_fullheight': post.get_field('left_360_is_fullheight')
     } %}
 
 {% endblock %}

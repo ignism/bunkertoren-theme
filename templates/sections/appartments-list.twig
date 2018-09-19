@@ -19,26 +19,31 @@
                 <tbody>
 
                     {% for appartment in appartments %}
-                        {# <tr>
-                            <td class="is-hidden-mobile">0{{ loop.index }}</td>
-                            <td><a href="{{ appartment.get_permalink() }}">{{ appartment.title }}</a></td>
-                            <td>{{ appartment.get_field('appartment_gebruiksoppervlak') }}</td>
-                            <td class="has-text-right">{{ appartment.get_field('appartment_cost') }}</td>
-                            <td class="has-text-right is-hidden-mobile">
-                                <a class="small" href="{{ appartment.get_permalink() }}">bekijk</a>
-                            </td>
-                        </tr> #}
+                        {% if appartment.get_field('appartment_lock') %}
 
-                         
-                         <tr onclick="document.location = '{{ appartment.get_permalink() }}'" style="cursor: pointer">
-                            <td class="is-hidden-small-mobile">0{{ loop.index }}</td>
-                            <td>{{ appartment.title }}</td>
-                            <td>{{ appartment.get_field('appartment_gebruiksoppervlak') }}</td>
-                            {# <td class="has-text-right">v.a. &euro; {{ appartment.get_field('appartment_cost') }}</td> #}
-                            <td class="has-text-right is-hidden-mobile">
-                                <a class="small" href="{{ appartment.get_permalink() }}">bekijk</a>
-                            </td>  
-                        </tr>
+                            <tr class="is-locked">
+                                <td class="is-hidden-small-mobile">0{{ loop.index }}</td>
+                                <td>{{ appartment.title }}</td>
+                                <td>{{ appartment.get_field('appartment_gebruiksoppervlak') }}</td>
+                                <td class="has-text-right">v.a. &euro; {{ appartment.get_field('appartment_cost') }}</td>
+                                <td class="has-text-right is-hidden-mobile">
+                                    <span class="small">binnenkort</span>
+                                </td>  
+                            </tr>
+
+                        {% else %}
+                                                    
+                            <tr onclick="document.location = '{{ appartment.get_permalink() }}'" style="cursor: pointer">
+                                <td class="is-hidden-small-mobile">0{{ loop.index }}</td>
+                                <td>{{ appartment.title }}</td>
+                                <td>{{ appartment.get_field('appartment_gebruiksoppervlak') }}</td>
+                                <td class="has-text-right">v.a. &euro; {{ appartment.get_field('appartment_cost') }}</td>
+                                <td class="has-text-right is-hidden-mobile">
+                                    <a class="small" href="{{ appartment.get_permalink() }}">bekijk</a>
+                                </td>  
+                            </tr>
+
+                        {% endif %}
                     {% endfor %}
                     
                 </tbody>

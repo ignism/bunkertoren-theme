@@ -10,23 +10,14 @@
 
     {% include 'sections/splash.twig' with {
         'background_color': 'light-red',
-        'image': TimberImage(post.get_field('front_splash_image')).src('bunker-fullwidth'),
+        'image': TimberImage(post.get_field('front_splash_image')).src,
         'text': post.get_field('front_splash_text'),
         'agenda': post.get_field('front_splash_agenda'),
-        'scroll_caption': post.get_field('front_splash_scroll')
+        'scroll_caption': post.get_field('front_splash_scroll'),
+        'button_360': post.get_field('front_button_360_group'),
+        'button_caption':post.get_field('front_splash_button_caption'),
+        'button_url':post.get_field('front_splash_button_url')
     } %}
-
-
-    {# {% include 'sections/text-360-front.twig' with {
-        'clipping': 'is-clipped-left',
-        'background_color': 'white',
-        'header': post.get_field('left_360_header'),
-        'title': post.get_field('left_360_title'),
-        'subtitle': post.get_field('left_360_appartment'),
-        'text': post.get_field('left_360_text'),
-        'image': post.get_field('left_360_image'),
-        'kuula': post.get_field('left_360_kuula')   
-    } %} #}
 
     {% for module in post.get_field('block_modules') %}
 

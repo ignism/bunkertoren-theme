@@ -23,7 +23,31 @@
             </div>
         {% endif %}
 
-        {% if slides | length > 1 %}
+        {% if slides | length > 4 %}
+            
+            <div class="slider-navbar is-double top">
+                {% for item in 1..4 %}
+                    <div data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}">
+                        <span>0{{ loop.index }}</span>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="slider-navbar is-double bottom">
+                {% for item in 5..slides | length %}
+                    <div data-slider-index="{{ loop.index0 + 4 }}" class="slider-nav-item">
+                        <span>0{{ loop.index + 4 }}</span>
+                    </div>
+                {% endfor %}
+
+                {% if slides | length < 8 %}
+                    {% for spacer in 0..((4 - (slides|length - 4)) - 1) %}
+                        <div class="slider-nav-spacer {{ slides|length }}"></div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+        {% elseif slides | length > 1 %}
             <div class="slider-navbar">
                 {% for slide in slides %}
                     <div data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}">

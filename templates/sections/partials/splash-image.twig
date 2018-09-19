@@ -6,7 +6,7 @@
         <div class="columns is-mobile">
             <div class="column is-10-mobile is-6-tablet is-6-desktop is-5-widescreen is-4-fullhd">
                 <p class="aankondiging">{{ text }}</p>
-                <a href="{{ agenda }}" class="button is-inverted button-agenda" style="z-index: +1">zet in agenda</a>
+                <a href="{{ button_url }}" class="button is-inverted button-agenda" style="z-index: +1">{{ button_caption }}</a>
             </div>
         </div>
     </div>
@@ -16,4 +16,9 @@
         <div class="vertical-line"></div>
     </div>
 
+    {% if button_360|length > 0 %}
+        <div class="button-fullscreen" data-kuula="{{ button_360[0].kuula|share }}">
+            <img src="{{ theme.link }}/assets/images/open360.svg" alt="">
+        </div>
+    {% endif %}
 </div>
