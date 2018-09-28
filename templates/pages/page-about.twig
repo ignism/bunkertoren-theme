@@ -25,7 +25,9 @@
                 'text': module.text,
                 'clipping': module.clipping,
                 'slides': module.slides,
-                'button': module.button_group
+                'button': module.button_group,
+                'isAutomatic': module.automatic,
+                'delay': module.delay_in_milliseconden
             } %}
 
         {% elseif module.acf_fc_layout == 'fullwidth_portrait' %}
@@ -45,7 +47,10 @@
                 'clipping': module.clipping,
                 'map': theme.link ~ '/assets/images/BKR_map_DD_V2.jpg',
                 'map_button': theme.link ~ '/assets/images/logo-b.svg',
-                'map_link': 'https://goo.gl/maps/7ZaFyj4mLp32'
+                'map_link': 'https://goo.gl/maps/7ZaFyj4mLp32',
+                'slides': module.slides,
+                'isAutomatic': module.automatic,
+                'delay': module.delay_in_milliseconden
             } %}
 
         {% endif %}

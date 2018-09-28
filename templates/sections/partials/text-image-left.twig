@@ -8,7 +8,7 @@
 
 {% endif %}
 
-<div class="columns body{% if header %} has-header{% endif %}{% if slides | length > 1 %} slider-wrapper{% endif %}">
+<div class="columns body{% if header %} has-header{% endif %}{% if slides | length > 1 %} slider-wrapper{% endif %}{% if isAutomatic %} is-automatic{% endif %}"{% if isAutomatic %} data-slider-delay="{{ delay }}"{% endif %}>
 
     <div class="column text-column is-hidden-mobile is-5-tablet is-4-desktop">
         <div data-appear="">

@@ -35,17 +35,24 @@
     <div class="column is-hidden-tablet">
         {% if slides | length > 1 %}
             <div class="slider-navbar is-mobile">
-
-                {% for slide in slides %}
-                    <div data-slider-id="{{ title|title_to_class }}" data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}">
-                        <span>0{{ loop.index }}</span>
-                    </div>
-                {% endfor %}
-
-                {% if slides | length < 4 %}
-                    {% for spacer in 0..((4 - slides|length) - 1) %}
-                        <div class="slider-nav-spacer"></div>
+                {% if slides | length > 4 %}
+                    {% for slide in slides %}
+                        <div data-slider-id="{{ title|title_to_class }}" data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}" style="width: calc((100% - 4.5rem) / {{ slides | length}})">
+                            <span>0{{ loop.index }}</span>
+                        </div>
                     {% endfor %}
+                {% else %}
+                    {% for slide in slides %}
+                        <div data-slider-id="{{ title|title_to_class }}" data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}">
+                            <span>0{{ loop.index }}</span>
+                        </div>
+                    {% endfor %}
+
+                    {% if slides | length < 4 %}
+                        {% for spacer in 0..((4 - slides|length) - 1) %}
+                            <div class="slider-nav-spacer"></div>
+                        {% endfor %}
+                    {% endif %}
                 {% endif %}
 
             </div>
@@ -76,16 +83,24 @@
 
         {% if slides | length > 1 %}
             <div class="slider-navbar">
-                {% for slide in slides %}
-                    <div data-slider-id="{{ title|title_to_class }}" data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}">
-                        <span>0{{ loop.index }}</span>
-                    </div>
-                {% endfor %}
-
-                {% if slides | length < 4 %}
-                    {% for spacer in 0..((4 - slides|length) - 1) %}
-                        <div class="slider-nav-spacer"></div>
+                {% if slides | length > 4 %}
+                    {% for slide in slides %}
+                        <div data-slider-id="{{ title|title_to_class }}" data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}" style="width: calc((100% - 4.5rem) / {{ slides | length}})">
+                            <span>0{{ loop.index }}</span>
+                        </div>
                     {% endfor %}
+                {% else %}
+                    {% for slide in slides %}
+                        <div data-slider-id="{{ title|title_to_class }}" data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}">
+                            <span>0{{ loop.index }}</span>
+                        </div>
+                    {% endfor %}
+
+                    {% if slides | length < 4 %}
+                        {% for spacer in 0..((4 - slides|length) - 1) %}
+                            <div class="slider-nav-spacer"></div>
+                        {% endfor %}
+                    {% endif %}
                 {% endif %}
             </div>
         {% endif %}

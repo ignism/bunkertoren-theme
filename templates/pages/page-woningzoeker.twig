@@ -1,0 +1,60 @@
+{% extends 'base.twig' %}
+
+{% set body_classes = ['page-woningzoeker'] %}
+{% set navbar_image = theme.link ~ '/assets/images/logo.svg' %}
+{% set navbar_link = site.link %}
+
+{% block body %}
+
+    {# filler START #}
+    <section class="section fit-height" data-background-color="light-gold" style="min-height:50vh; height:50vh">
+        <div class="container is-fluid fit-height"></div>
+    </section>
+    {# filler END #}
+
+    {# DEV #}
+    <script>    
+        console.log("{{ 'primary'|get_sign_in_url }}")
+    </script>
+    
+    {# app START #}
+    <div id="app"></div>
+    <script src="{{ site.theme.link }}/assets/woningzoeker/js/chunk-vendors.72871a71.js"></script>
+    <script src="{{ site.theme.link }}/assets/woningzoeker/js/app.c769182a.js"></script>
+    {# app END #}
+
+    {# DOWNLOADS START #}
+    <section class="section app-downloads fit-height">
+        <div class="container is-fluid" style="padding-top: 0; min-height: auto">
+            <div class="columns">
+                <div class="column is-offset-5">
+                    <div class="level button-group">
+                        <div class="level-item">
+                            <a target="_blank" href="http://bunkertoren.nl/site/wp-content/themes/bunkertoren/assets/woningzoeker/BunkerToren_Brochure.pdf" class="button">Brochure (PDF)</a>
+                        </div>
+                        <div class="level-item">
+                            <a target="_blank" href="http://bunkertoren.nl/site/wp-content/themes/bunkertoren/assets/woningzoeker/BunkerToren_Prijslijst.pdf" class="button">Prijslijst (PDF)</a>
+                        </div>
+                        <div class="level-item">
+                            <a target="_blank" href="http://bunkertoren.nl/site/wp-content/themes/bunkertoren/assets/woningzoeker/BunkerToren_Technische_Omschrijving.pdf" class="button">Specificaties (PDF)</a>
+                        </div>
+                    </div>
+                    <div class="level button-group">
+                        <div class="level-item">
+                            <a target="_blank" href="http://bunkertoren.nl/site/wp-content/themes/bunkertoren/assets/woningzoeker/BunkerToren_Verkoop_Procedure.pdf" class="button">Verkoop Procedure (PDF)</a>
+                        </div>
+                        <!-- <div class="level-item"><a target="_blank" href="http://bunkertoren.nl/site/wp-content/themes/bunkertoren/assets/woningzoeker/BunkerToren_Prijslijst.pdf" class="button">Verkoop Tekeningen (PDF)</a></div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {# DOWNLOADS END #}
+
+    {# filler START #}
+    <section class="section fit-height" data-background-color="light-gold" style="min-height:50vh; height:50vh">
+        <div class="container is-fluid fit-height"></div>
+    </section>
+    {# filler END #}
+
+{% endblock %}

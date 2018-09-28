@@ -18,10 +18,12 @@
     } %}
 
 
-    {% include 'sections/appartments-list.twig' with {
+    {# {% include 'sections/appartments-list.twig' with {
         'header': post.get_field('appartment_list_header'),
         'disclaimer': post.get_field('appartment_list_disclaimer'),
-    } %}
+    } %} #}
+
+    {% include 'sections/woningzoeker.twig' %}
 
     {% include 'sections/text-360.twig' with {
         'clipping': 'is-clipped-right',

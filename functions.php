@@ -192,6 +192,18 @@ class StarterSite extends TimberSite
         return $datum;
     }
 
+    public function get_sign_in_url($menu) {
+        $menu_items = wp_get_nav_menu_items($menu);
+
+        foreach ($menu_items as $item) {
+            if (strtolower($item->title) === 'inschrijven') {
+                return $item->url;
+            }
+
+        }
+        return '#';
+    }
+
     public function add_to_twig($twig)
     {
         /* this is where you can add your own functions to twig */
@@ -210,6 +222,8 @@ class StarterSite extends TimberSite
         $twig->addFilter('remove_breaks', new Twig_SimpleFilter('remove_breaks', array($this, 'remove_breaks')));
         
         $twig->addFilter('title_to_class', new Twig_SimpleFilter('title_to_class', array($this, 'title_to_class')));
+
+        $twig->addFilter('get_sign_in_url', new Twig_SimpleFilter('get_sign_in_url', array($this, 'get_sign_in_url')));
         
         return $twig;
     }

@@ -10,20 +10,54 @@
 
 {% block content %}
 
-    <div class="columns body {% if header %}has-header{% endif %}">
+    <div class="columns body {% if header %}has-header{% endif %}{% if slides | length > 1 %} slider-wrapper{% endif %}{% if isAutomatic %} is-automatic{% endif %}"{% if isAutomatic %} data-slider-delay="{{ delay }}"{% endif %}>
         <div class="column text-column is-hidden-mobile is-5-tablet is-4-desktop">
             <div data-appear="">
                 <h1>{{ title }}</h1>
             </div>
             <div data-appear="" data-appear-delay="200ms">
                 <p>{{ text }}</p>
+                <p style="margin-bottom: 4rem">
+                    <a class="button" href="{{ map_link }}" target="_blank" style="border: 1px solid black">In Google Maps Openen</a>
+                </p>
+            </div>
+
+
+
+            {# <div class="map-link-button">
+                <a href="{{ map_link }}" target="_blank"><img src="{{ map_button }}" alt=""></a>
+            </div> #}
+
+            {% if slides | length > 1 %}
+                <div class="slider-navbar">
+                    {% for slide in slides %}
+                        <div data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}">
+                            <span>0{{ loop.index }}</span>
+                        </div>
+                    {% endfor %}
+
+                    {% if slides | length < 4 %}
+                        {% for spacer in 0..((4 - slides|length) - 1) %}
+                            <div class="slider-nav-spacer"></div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="column map-column is-offset-1 is-6-tablet is-7-desktop">
+            <div class="{% if slides|length > 1 %}slider {% endif %}{{ clipping }}">
+
+                {% for slide in slides %}
+                    <img src="{{ TimberImage(slide.image).src('bunker-large') }}" alt="">
+                {% endfor %}
+
             </div>
         </div>
-        <div class="column map-column is-6-tablet is-7-desktop is-offset-1">
+
+        {# <div class="column map-column is-6-tablet is-7-desktop is-offset-1">
             <div class="map {{ clipping }}">
-                {# <div class="background-image" style="background-image: url('{{ map }}')"> 
-                        <img src="{{ map }}" alt="" class="placeholder"> 
-                    </div> #}
+
                 <div class="map-wrapper">
                     <img src="{{ map }}" alt="" class="">
                     <div class="map-link-button">
@@ -31,13 +65,35 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> #}
+
         <div class="column is-hidden-tablet">
+            {% if slides | length > 1 %}
+                <div class="slider-navbar is-mobile">
+
+                    {% for slide in slides %}
+                        <div data-slider-index="{{ loop.index0 }}" class="slider-nav-item{% if loop.first %} is-active{% endif %}">
+                            <span>0{{ loop.index }}</span>
+                        </div>
+                    {% endfor %}
+
+                    {% if slides | length < 4 %}
+                        {% for spacer in 0..((4 - slides|length) - 1) %}
+                            <div class="slider-nav-spacer"></div>
+                        {% endfor %}
+                    {% endif %}
+
+                </div>
+            {% endif %}
+
             <div data-appear="">
                 <h1>{{ title }}</h1>
             </div>
             <div data-appear="" data-appear-delay="200ms">
                 <p>{{ text }}</p>
+                <p>
+                    <a class="button" href="{{ map_link }}" target="_blank" style="border: 1px solid black">In Google Maps Openen</a>
+                </p>
             </div>
         </div>
     </div>

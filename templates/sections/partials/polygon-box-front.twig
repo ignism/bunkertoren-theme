@@ -9,6 +9,10 @@
             </p>
         </div>
         <div class="left-item level-right">
-            <a href="{{ button.url }}" target="_blank" class="button is-red-inverted"><span class="constructed">s</span>chrijf je in</a>
+            {% if button.url %}
+                <a href="{{ button.url }}" target="_blank" class="button is-red-inverted"><span class="constructed">s</span>chrijf je in</a>
+            {% else %}
+                <a href="{{ 'primary'|get_sign_in_url }}" target="_blank" class="button is-red-inverted"><span class="constructed">s</span>chrijf je in</a>
+            {% endif %}
         </div>
     </div>
